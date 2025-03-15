@@ -1,12 +1,25 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import Navbar from "../components/Navbar";
 import "../styles/home.css";
 
-const HomePage: React.FC = () => {
+function HomePage() {
+  const [user, setUser] = useState<{ username: string; profileImage?: string } | null>(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   return (
-    <div className="home-container">
-      <h1 className="home-title">Welcome to Home Page</h1>
-    </div>
+    <>
+      <Navbar user={user} />
+      <div className="home-container">
+        <h1>Welcome to Home Page</h1>
+      </div>
+    </>
   );
-};
+}
 
 export default HomePage;
