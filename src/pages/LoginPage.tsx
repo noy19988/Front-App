@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import Form from "../components/Form";
 import { loginUser } from "../services/api-client";
 import "../styles/auth.css";
-import { CredentialResponse } from "@react-oauth/google"; 
+import { CredentialResponse } from "@react-oauth/google"; // ✅ ייבוא סוג הנתונים
 
 
 function LoginPage() {
@@ -82,7 +82,7 @@ function LoginPage() {
           <Input autoComplete="off" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
           <Button text="Login" onClick={handleSubmit} />
 
-          {}
+          {/* ✅ כפתור התחברות עם גוגל */}
           <div className="google-btn-container">
             <GoogleLogin onSuccess={handleGoogleLogin} onError={() => setError("Google Login Failed")} />
           </div>
