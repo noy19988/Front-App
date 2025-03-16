@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import ProfilePage from './pages/ProfilePage';
-import ProfileOtherDetailsPage from "./pages/ProfileOtherDetailsPage"; // הוספת ייבוא
+import ProfileOtherDetailsPage from "./pages/ProfileOtherDetailsPage";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/profile/:userId" element={<ProfileOtherDetailsPage />} /> {/* הוספת נתיב */}
+        <Route path="/profile/:userId" element={<ProfileOtherDetailsPage />} /> {}
       </Routes>
     </BrowserRouter>
   );

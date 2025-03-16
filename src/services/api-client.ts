@@ -1,6 +1,5 @@
 import axios, { AxiosError } from "axios";
 
-// 📌 עדכון `baseURL` ללא `/api`
 const apiClient = axios.create({
   baseURL: "http://localhost:3000",
   headers: {
@@ -8,7 +7,6 @@ const apiClient = axios.create({
   },
 });
 
-// 📌 Interceptor לכל הבקשות - מוסיף `Authorization` אם יש `token`
 apiClient.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
@@ -19,7 +17,6 @@ apiClient.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
-// 📌 התחברות משתמש
 export const loginUser = async (email: string, password: string) => {
   try {
     const response = await apiClient.post("/auth/login", { email, password });
@@ -41,7 +38,6 @@ export const loginUser = async (email: string, password: string) => {
 };
   
 
-// 📌 רישום משתמש חדש
 export const signUpUser = async (username: string, email: string, password: string) => {
   try {
     const response = await apiClient.post("/auth/register", { username, email, password });
@@ -56,7 +52,6 @@ export const signUpUser = async (username: string, email: string, password: stri
   }
 };
 
-// 📌 יציאה מהמשתמש
 export const logoutUser = async () => {
   try {
     await apiClient.post("/auth/logout");
@@ -67,7 +62,6 @@ export const logoutUser = async () => {
   }
 };
 
-// 📌 קבלת פרטי משתמש לפי ID
 export const getUserDetails = async (userId: string) => {
   try {
     const response = await apiClient.get(`/users/${userId}`);
@@ -83,7 +77,6 @@ export const getUserDetails = async (userId: string) => {
 };
 
 
-// 📌 מחיקת משתמש לפי ID
 export const deleteUser = async (userId: string) => {
     try {
       await apiClient.delete(`/users/${userId}`);
@@ -119,6 +112,5 @@ export const deleteUser = async (userId: string) => {
 
   
 
-// 📌 ביטול בקשות API בצורה נכונה
 export const CanceledError = axios.CanceledError;
 export default apiClient;

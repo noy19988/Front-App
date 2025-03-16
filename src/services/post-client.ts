@@ -3,7 +3,7 @@ import apiClient from "./api-client";
 export interface User {
   _id: string;
   username: string;
-  imgUrl?: string; // תמונת פרופיל אופציונלית
+  imgUrl?: string;
 }
 
 
@@ -18,13 +18,13 @@ export interface Post {
   instructions: string[];
   authorId: User;
   likes: number;
-  likedBy: string[]; // הוספת שדה likedBy
+  likedBy: string[]; 
   comments: string[];
   savedBy: string[];
   createdAt: string;
 }
 
-// 📌 שליפת כל הפוסטים
+
 export const getAllPosts = async (): Promise<Post[]> => {
     try {
       const response = await apiClient.get("/posts"); // 📌 שינוי הנתיב
@@ -35,7 +35,7 @@ export const getAllPosts = async (): Promise<Post[]> => {
     }
 };
 
-// 📌 יצירת פוסט חדש
+
 export const createPost = async (postData: Partial<Post>) => {
   try {
     const response = await apiClient.post("/posts", postData);
@@ -46,7 +46,7 @@ export const createPost = async (postData: Partial<Post>) => {
   }
 };
 
-// 📌 מחיקת פוסט
+
 export const deletePost = async (postId: string) => {
   try {
     await apiClient.delete(`/posts/${postId}`);
@@ -56,14 +56,14 @@ export const deletePost = async (postId: string) => {
   }
 };
 
-// 📌 עדכון פוסט
+
 export const updatePost = async (postId: string, updatedData: Partial<Post> | FormData, liked?: boolean) => {
   try {
       const isFormData = updatedData instanceof FormData;
 
       const requestData = isFormData
           ? updatedData
-          : { ...updatedData, liked }; // הוספת `liked` אם זה לא `FormData`
+          : { ...updatedData, liked }; 
 
       const response = await apiClient.put(
           `/posts/${postId}`,
@@ -83,22 +83,22 @@ export const updatePost = async (postId: string, updatedData: Partial<Post> | Fo
 
 export const savePost = async (postId: string) => {
   try {
-    const userId = localStorage.getItem("userId"); // שליפת ה-ID של המשתמש
+    const userId = localStorage.getItem("userId"); 
 
     if (!userId) {
-      throw new Error("User not logged in"); // טיפול במקרה שהמשתמש לא מחובר
+      throw new Error("User not logged in"); 
     }
 
     const response = await apiClient.put(`/posts/${postId}/save`, { userId }); // שליחת בקשה ל-backend
     return response.data;
   } catch (error) {
     console.error("Error saving/unsaving post:", error);
-    throw error; // זריקת השגיאה כדי לטפל בה בקומפוננטה
+    throw error; 
   }
 };
 
 
-// 📌 שליפת פוסטים של משתמש מסוים
+
 export const getPostsByUser = async (userId: string): Promise<Post[]> => {
   try {
       const response = await apiClient.get(`/posts/user/${userId}`);
@@ -110,7 +110,6 @@ export const getPostsByUser = async (userId: string): Promise<Post[]> => {
 };
 
 
-// 📌 שליפת ערכים תזונתיים של פוסט מסוים
 export const getPostNutrition = async (postId: string): Promise<{ calories: number; protein: number; sugar: number } | null> => {
   try {
       const response = await apiClient.get(`/posts/${postId}/nutrition`);

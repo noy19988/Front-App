@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import "../styles/postCreate.css";
+import "../styles/postcreate.css";
 
 interface PostCreatePageProps {
   isOpen: boolean;
@@ -20,13 +20,13 @@ const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPost
 
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement | null>(null); // ✅ רפרנס לשדה הקובץ
+  const fileInputRef = useRef<HTMLInputElement | null>(null); 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
   
     if (name === "prepTime") {
-      const numericValue = value === "" ? "" : parseInt(value, 10); // השדה יתחיל ריק ויקבל מספרים בלבד
+      const numericValue = value === "" ? "" : parseInt(value, 10); 
       setFormData({ ...formData, [name]: isNaN(numericValue as number) ? "" : numericValue });
     } else if (name === "category" || name === "ingredients" || name === "instructions") {
       setFormData({ ...formData, [name]: value.split(",") });
@@ -55,7 +55,7 @@ const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPost
 
   const handleContainerClick = () => {
     if (fileInputRef.current) {
-      fileInputRef.current.click(); // ✅ פותח את חלון בחירת הקבצים בלחיצה
+      fileInputRef.current.click(); 
     }
   };
 
@@ -71,7 +71,7 @@ const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPost
         formDataToSend.append("instructions", JSON.stringify(formData.instructions));
 
         if (imageFile) {
-            formDataToSend.append("image", imageFile);  // ✅ כאן מוסיפים את הקובץ
+            formDataToSend.append("image", imageFile);  
         }
 
         const response = await fetch("http://localhost:3000/posts", {
@@ -105,12 +105,12 @@ const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPost
           <input type="text" name="recipeTitle" placeholder="Recipe Title" value={formData.recipeTitle} onChange={handleChange} required />
           <input type="text" name="category" placeholder="Category (comma separated)" value={formData.category.join(", ")} onChange={handleChange} required />
 
-          {/* ✅ אזור העלאת תמונה - לחיצה תפתח חלון קבצים */}
+          {}
           <div
             className="image-upload-container"
             onDragOver={(e) => e.preventDefault()}
             onDrop={handleDrop}
-            onClick={handleContainerClick} // ✅ לחיצה פותחת את חלון הקבצים
+            onClick={handleContainerClick} 
           >
             {previewImage ? (
               <img src={previewImage} alt="Preview" className="image-preview" />

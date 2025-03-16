@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Post, deletePost, updatePost, savePost } from "../services/post-client";
 import { addComment, getCommentsByPost, Comment } from "../services/comment-client";
 import { getUserDetails } from "../services/api-client";
-import "../styles/postItem.css";
+import "../styles/postitem.css";
 import { RiRobot2Fill } from "react-icons/ri";
 import { getPostNutrition } from "../services/post-client"; 
 import { FaHeart, FaComment, FaTrash, FaEllipsisV, FaEdit, FaBookmark } from "react-icons/fa";
 import PostUpdatePage from "../pages/PostUpdatePage";
-import { Link } from "react-router-dom"; // ייבוא Link
+import { Link } from "react-router-dom";
 
 interface PostItemProps {
     post: Post;

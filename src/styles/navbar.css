@@ -121,6 +121,13 @@
     background: #f0f0f0;
 }
 
+.profile-icon:hover + .dropdown-menu,
+.dropdown-menu:hover {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .logout-btn {
     background: none;
     border: none;
@@ -135,3 +142,5 @@
 .logout-btn:hover {
     color: red;
 }
+
+

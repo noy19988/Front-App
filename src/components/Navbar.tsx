@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { FaUser, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import "../styles/home.css";
+import "../styles/navbar.css";
 
 const Navbar = ({ user }: { user: { username: string; profileImage?: string } | null }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -15,11 +15,11 @@ const Navbar = ({ user }: { user: { username: string; profileImage?: string } | 
   };
 
   const handleProfileClick = () => {
-    console.log("✅ Navigating to /profile");
+    console.log("Navigating to /profile");
     navigate("/profile");
   };
 
-  // סגירת התפריט כשמשתמש לוחץ מחוץ לאזור
+ 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -32,18 +32,18 @@ const Navbar = ({ user }: { user: { username: string; profileImage?: string } | 
 
   return (
     <nav className="navbar">
-      {/* לוגו שנטען מתיקיית public */}
+      {}
       <div className="logo" onClick={() => navigate("/")}>
         <img src="/logo.PNG" alt="Food Connect Logo" className="navbar-logo" />
       </div>
 
-      {/* שורת חיפוש */}
+      {}
       <div className="search-bar">
         <input type="text" placeholder="Search..." />
         <FaSearch className="search-icon" />
       </div>
 
-      {/* אזור המשתמש */}
+      {}
       <div className="user-info">
         <span className="welcome-text">Welcome, {user ? user.username : "Guest"}!</span>
         <div className="profile-icon" onClick={() => setDropdownOpen(!dropdownOpen)}>
@@ -54,7 +54,7 @@ const Navbar = ({ user }: { user: { username: string; profileImage?: string } | 
           )}
         </div>
 
-        {/* תפריט נפתח */}
+        {}
         {dropdownOpen && (
           <div className="dropdown-menu" ref={dropdownRef}>
             <button onClick={handleProfileClick} className="dropdown-item">

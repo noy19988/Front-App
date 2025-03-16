@@ -7,12 +7,11 @@ export interface Comment {
   author: {
     _id: string;
     username: string;
-    imgUrl?: string; // ✅ תמונת פרופיל של המשתמש
+    imgUrl?: string; 
   };
   createdAt: string;
 }
 
-// 📌 שליחת תגובה חדשה לשרת
 export const addComment = async (postId: string, content: string): Promise<Comment> => {
   try {
     const response = await apiClient.post("/comment", { postId, content });
@@ -23,7 +22,6 @@ export const addComment = async (postId: string, content: string): Promise<Comme
   }
 };
 
-// 📌 שליפת כל התגובות של פוסט מסוים
 export const getCommentsByPost = async (postId: string): Promise<Comment[]> => {
   try {
     const response = await apiClient.get(`/comment/post/${postId}`);
@@ -34,7 +32,6 @@ export const getCommentsByPost = async (postId: string): Promise<Comment[]> => {
   }
 };
 
-// 📌 מחיקת תגובה
 export const deleteComment = async (commentId: string) => {
   try {
     await apiClient.delete(`/comment/${commentId}`);

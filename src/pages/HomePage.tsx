@@ -63,7 +63,7 @@ function HomePage() {
             onPostCreated={fetchPosts}
           />
 
-          {/* 📌 עטפתי את הרשימה בקונטיינר עם גלילה */}
+          {}
           <div className="post-list-container">
             <PostList posts={posts} onPostDeleted={fetchPosts} />
           </div>

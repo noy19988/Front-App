@@ -6,7 +6,7 @@ interface InputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   autoComplete?: string;
-  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void; // הוספנו את onKeyPress
+  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void; 
 }
 
 const Input: React.FC<InputProps> = ({
@@ -15,7 +15,7 @@ const Input: React.FC<InputProps> = ({
   value,
   onChange,
   autoComplete,
-  onKeyPress // הוספנו את onKeyPress
+  onKeyPress 
 }) => {
   const computedAutoComplete = type === "email" ? "username" : "new-password";
 
@@ -27,7 +27,7 @@ const Input: React.FC<InputProps> = ({
       onChange={onChange}
       autoComplete={autoComplete || computedAutoComplete}
       className="input-field"
-      onKeyPress={onKeyPress} // הוספנו את onKeyPress כאן
+      onKeyPress={onKeyPress} 
     />
   );
 };

@@ -5,7 +5,7 @@ import { getPostsByUser, Post } from "../services/post-client";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import PostList from "../components/PostList";
-import "../styles/profileOtherDetails.css"; // יצירת קובץ עיצוב חדש
+import "../styles/profilotherdetails.css"; 
 
 const ProfileOtherDetailsPage: React.FC = () => {
     const { userId } = useParams<{ userId: string }>();
@@ -57,7 +57,7 @@ const ProfileOtherDetailsPage: React.FC = () => {
                             <img
                                 src={user.imgUrl || "https://example.com/default-profile.png"}
                                 alt={user.username}
-                                className="profile-other-image" // שינוי שם המחלקה
+                                className="profile-other-image" 
                             />
                             <div className="user-info">
                                 <h2>{user.username}</h2>
