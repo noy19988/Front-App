@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { updatePost } from "../services/post-client";
-import "../styles/postupdate.css";
+import "../styles/postcreate.css";
 import { Post } from "../services/post-client";
 
 interface PostUpdatePageProps {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaUser, FaBookmark, FaInfoCircle, FaUtensils } from "react-icons/fa";
-import "../styles/sidebar.css";
+import "../styles/home.css";
 
 const Sidebar: React.FC = () => {
   return (

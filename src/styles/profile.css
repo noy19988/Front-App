@@ -1,11 +1,11 @@
+  /* profile css */
 
+/* עיצוב כללי של דף הפרופיל */
 .profile-container {
     display: flex;
-    flex-direction: column; 
     justify-content: center;
-    align-items: center; 
-    min-height: 100vh; 
-    padding: 20px;
+    align-items: flex-start; /* מוודא ששני האלמנטים יתחילו מאותה נקודה */
+    height: 100%;
     gap: 20px;
 }
   
@@ -15,9 +15,7 @@
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px; 
+    width: 500px;
 }
   
 .profile-title {
@@ -38,7 +36,6 @@
     border: 3px solid #ddd;
     overflow: hidden;
     margin: 0 auto;
- 
 }
   
 .profile-image {
@@ -48,6 +45,7 @@
     border-radius: 50%;
 }
   
+/* תמונה דיפולטיבית */
 .default-profile {
     display: flex;
     align-items: center;
@@ -59,10 +57,11 @@
 }
 
 .default-profile-icon {
-    font-size:22px;
-    color: #750303;
+    font-size: 50px;
+    color: #666;
 }
 
+/* כפתור העלאת תמונה בסגנון קלאסי */
 .file-upload input[type="file"] {
     display: block;
     width: 100%;
@@ -75,34 +74,32 @@
 }
 
 .image-info {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
+    font-size: 16px; /* ניתן להגדיל יותר אם צריך */
+    font-weight: bold; /* להפוך את הטקסט לבולט יותר */
+    color: #333; /* להבליט עם צבע כהה יותר */
     text-align: center;
     margin-top: 10px;
 }
 
   
+/* עיצוב של חלק פרטי המשתמש */
 .profile-details {
     background: white;
-    padding: 30px;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
-    height: auto; 
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto; 
+    width: 800px;
+    height: 800px;
 }
 
+/* התאמת הכותרת של Account Details לכותרת של Profile Picture */
 .profile-details h3 {
-    font-size: 1.7rem;
+    font-size: 1.7rem; /* תואם לגודל של Profile Picture */
     font-weight: bold;
-    margin-bottom: 15px;
-    text-align: center; 
+    margin-bottom: 10px;
 }
   
+/* שדות הטופס */
 .input-field {
     width: 100%;
     padding: 14px;
@@ -122,12 +119,11 @@
     cursor: not-allowed;
 }
 
-
+/* סידור הכפתורים */
 .button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 20px;
-    gap: 15px; 
 }
 
 .save-button {
@@ -137,8 +133,8 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    padding: 10px 20px;
-    min-width: 120px; 
+    margin-right: 10px;
+    padding: 10px 20px; /* שומר על גודל אחיד */
 }
 
 .delete-button {
@@ -150,9 +146,6 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 5px;
     font-weight: bold;
-    min-width: 120px;
 }
-

@@ -1,11 +1,11 @@
 import React from "react";
-import PostItem from "./PostItem"; 
+import PostItem from "./PostItem"; // ✅ שימוש בקומפוננטה נפרדת
 import { Post } from "../services/post-client";
-import "../styles/postlist.css";
+import "../styles/home.css";
 
 interface PostListProps {
   posts: Post[];
-  onPostDeleted: () => void; 
+  onPostDeleted: () => void; // ✅ פונקציה שמתעדכנת אחרי מחיקה
 }
 
 const PostList: React.FC<PostListProps> = ({ posts, onPostDeleted }) => {

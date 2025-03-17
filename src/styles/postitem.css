@@ -1,58 +1,275 @@
+/* סגנון כללי לפוסט */
 .post-item {
-  background: white;
-  padding: 25px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 18px;
-  width: 100%;
-  transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  
-  
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background: white;
+  padding: 15px;
 }
 
-.post-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+/* אזור הפרטים של הפוסט */
+.post-details {
+  padding-bottom: 10px;
 }
 
-
-.post-title {
-  font-size: 22px;
-  font-weight: bold;
-  color: #333;
-}
-
-
-.post-content {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-}
-
-
-.post-actions {
-  display: flex;
-  justify-content: space-between;
+.post-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
   margin-top: 10px;
 }
 
-.like-button, .comment-button {
-  background: none;
-  border: none;
+/* נתוני לייקים ותגובות */
+.post-stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* כפתורי פעולה */
+.post-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.post-actions button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  color: #007bff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: white;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.like-btn.liked {
+  background-color: #ff5a5f;
+  color: white;
+  border-color: #ff5a5f;
+}
+
+.like-btn:hover,
+.comment-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* אזור התגובות */
+.comments-section {
+  margin-top: 15px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.comments-section textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  resize: none;
+}
+
+.submit-comment {
+  margin-top: 5px;
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.previous-comments {
+  margin-top: 10px;
+  padding-top: 5px;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.comment-author-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.comment-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-content strong {
+  font-size: 14px;
+  color: #333;
+}
+
+.comment-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* פרטי הכותב */
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.author-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.author-name {
+  font-weight: bold;
+  font-size: 22px;
+  color: #333;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* עיצוב תפריט שלוש הנקודות */
+.post-options {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.options-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.post-options {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute !important;
+  top: 93% !important; /* מוודא שהתפריט יוצג מתחת לכפתור */
+  right: 20px !important;
+  background: white !important;
+  border: 1px solid #ddd !important;
+  border-radius: 5px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  list-style: none !important;
+  padding: 5px 0 !important;
+  width: 160px !important;
+  z-index: 9999 !important; /* לוודא שהתפריט מופיע מעל הכל */
+  white-space: nowrap !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+
+.dropdown-menu li {
+  padding: 8px 12px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.like-button:hover, .comment-button:hover {
-  text-decoration: underline;
+.dropdown-menu li:hover {
+  background: #f0f0f0;
+}
+
+/* עיצוב הכפתור שמירה */
+.save-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 50%;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.save-btn:hover {
+  color: #555;
+  transform: scale(1.1);
+}
+
+.save-btn:active {
+  transform: scale(0.95);
+}
+
+.save-icon {
+  font-size: 22px;
+  stroke: black;
+  stroke-width: 20;
+  fill: white;
+  transition: fill 0.3s ease;
+}
+
+.saved .save-icon {
+  fill: black;
+}
+
+/* כותב הפוסט */
+.post-author {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-created-at {
+  font-size: 13px;
+  color: #888;
+  margin-top: 2px;
 }
 
 
+/* תצוגת הנתונים התזונתיים */
+.nutrition-info {
+  font-size: 17px;
+  color: #333;
+  margin-left: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}

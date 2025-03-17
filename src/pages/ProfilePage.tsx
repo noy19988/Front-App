@@ -4,14 +4,14 @@ import { getUserDetails, updateUser, deleteUser } from "../services/api-client";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { FaTrash, FaUser } from "react-icons/fa";
-import "../styles/profile.css"; 
+import "../styles/profile.css"; // קובץ העיצוב
 
 const ProfilePage = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<{ _id: string; username: string; email: string; imgUrl?: string } | null>(null);
   const [newUsername, setNewUsername] = useState("");
   const [newImage, setNewImage] = useState<File | null>(null);
-  const [profileImage, setProfileImage] = useState<string | null>(null); 
+  const [profileImage, setProfileImage] = useState<string | null>(null); // סטייט לתמונה
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -35,7 +35,7 @@ const ProfilePage = () => {
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
-    const filteredValue = inputValue.replace(/\s/g, ""); 
+    const filteredValue = inputValue.replace(/\s/g, ""); // מונע רווחים
     setNewUsername(filteredValue);
   };
 
@@ -58,11 +58,11 @@ const ProfilePage = () => {
       const updatedUser = await updateUser(user._id, formData);
       if (updatedUser) {
         setUser(updatedUser);
-        setProfileImage(updatedUser.imgUrl); 
-        alert("Profile updated successfully!");
+        setProfileImage(updatedUser.imgUrl); // עדכון תמונה לאחר השמירה
+        alert("✅ Profile updated successfully!");
       }
     } catch (error) {
-      console.error("Error updating profile:", error);
+      console.error("❌ Error updating profile:", error);
     }
   };
 
@@ -83,14 +83,14 @@ const ProfilePage = () => {
 
   return (
     <div className="home-container">
-      {}
+      {/* הניווט העליון */}
       <Navbar user={user} />
 
       <div className="content">
-        {}
+        {/* הסרגל הצדדי */}
         <Sidebar />
 
-        {}
+        {/* התוכן המרכזי - עמוד פרופיל */}
         <div className="main-content">
           <div className="profile-container">
             <div className="profile-card">
