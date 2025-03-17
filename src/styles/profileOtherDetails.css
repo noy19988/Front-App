@@ -1,0 +1,35 @@
+.profile-other-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow-y: auto; /* הוספת גלילה אנכית לכל הקונטיינר */
+    max-height: calc(100vh - 80px); /* הגבלת גובה הקונטיינר */
+}
+
+.user-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+}
+
+.profile-other-image { /* שינוי שם המחלקה */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.user-posts {
+    width: 100%;
+    max-width: 1000px;
+    overflow-y: auto; /* הוספת גלילה אנכית לרשימת הפוסטים */
+    max-height: calc(100vh - 250px); /* הגבלת גובה רשימת הפוסטים */
+}

@@ -1,21 +1,29 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import SignUpPage from "./pages/SignUpPage";
-import LoginPage from "./pages/LoginPage";
-import ProfilePage from "./pages/ProfilePage";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
+import ProfilePage from './pages/ProfilePage';
+import SavedPostsPage from './pages/SavedPostsPage';
+import MyPostsPage from './pages/MyPostsPage';
+import RecipesPage from './pages/RecipesPage';
+import ProfileOtherDetailsPage from "./pages/ProfileOtherDetailsPage"; // הוספת ייבוא
+import './styles/global.css';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/saved-posts" element={<SavedPostsPage />} />
+        <Route path="/my-posts" element={<MyPostsPage />} />
+        <Route path="/recipes" element={<RecipesPage />} /> 
+        <Route path="/profile/:userId" element={<ProfileOtherDetailsPage />} /> {/* הוספת נתיב */}
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
