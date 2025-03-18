@@ -20,11 +20,11 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
     <div className="recipe-card">
       <img src={recipe.image} alt={recipe.title} className="recipe-image" />
       <h3 className="recipe-title">{recipe.title}</h3>
-      <p><strong>Time:</strong> {recipe.readyInMinutes} min</p>
-      <p><strong>Servings:</strong> {recipe.servings}</p>
+      <p>Time :{recipe.readyInMinutes} min</p>
+      <p>Servings : {recipe.servings}</p>
       <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
 
-      <h4>Ingredients:</h4>
+      <p>Ingredients :</p>
       {recipe.extendedIngredients && recipe.extendedIngredients.length > 0 ? (
         <ul>
           {recipe.extendedIngredients.map((ingredient, index) => (
@@ -37,12 +37,12 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
         <p>No ingredients available.</p>
       )}
 
-      <h4>Instructions:</h4>
+      <p>Instructions :</p>
       <p>{recipe.instructions || "No instructions available."}</p>
 
       {recipe.nutrition && recipe.nutrition.nutrients.length > 0 ? (
         <>
-          <h4>Nutrition Facts:</h4>
+          <p>Nutrition Facts:</p>
           <ul>
             {recipe.nutrition.nutrients.map((nutrient, index) => (
               <li key={index}>

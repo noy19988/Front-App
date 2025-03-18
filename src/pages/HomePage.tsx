@@ -52,11 +52,10 @@ function HomePage() {
       <Navbar user={user} />
       <div className="content">
         <Sidebar />
+        <button className="create-post-btn" onClick={() => setIsPostModalOpen(true)}>
+        Create Post
+        </button>
         <div className="main-content">
-          <button className="create-post-btn" onClick={() => setIsPostModalOpen(true)}>
-            Create Post
-          </button>
-
           <PostCreatePage
             isOpen={isPostModalOpen}
             onClose={() => setIsPostModalOpen(false)}
@@ -69,7 +68,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-    </div>
+   </div> 
   );
 }
 

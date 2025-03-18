@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Post, deletePost, updatePost, savePost } from "../services/post-client";
 import { addComment, getCommentsByPost, Comment } from "../services/comment-client";
 import { getUserDetails } from "../services/api-client";
-import "../styles/postItem.css";
+import "../styles/postitem.css";
 import { RiRobot2Fill } from "react-icons/ri";
 import { getPostNutrition } from "../services/post-client"; 
 import { FaHeart, FaComment, FaTrash, FaEllipsisV, FaEdit, FaBookmark } from "react-icons/fa";
@@ -103,9 +103,11 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
             console.error("Error adding comment:", error);
         }
     };
-
+  
     const handleEditPost = () => {
         setIsEditModalOpen(true);
+        setShowDropdown(false);
+
     };
 
     const handleDeletePost = async () => {
@@ -182,7 +184,7 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
               </div>
   
               <div className="post-options">
-    <button className={`save-btn ${saved ? 'saved' : ''}`} aria-label="Save post" onClick={handleSave}>
+    <button className={`save-btn-item ${saved ? 'saved' : ''}`} aria-label="Save post" onClick={handleSave}>
         <FaBookmark className="save-icon" />
     </button>
 
@@ -193,7 +195,7 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
             </button>
 
             {showDropdown && (
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu-item">
                     <li onClick={handleDeletePost}><FaTrash /> Delete Post</li>
                     <li onClick={handleEditPost}><FaEdit /> Edit Post</li>
                 </ul>

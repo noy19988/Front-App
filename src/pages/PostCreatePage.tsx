@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import "../styles/postCreate.css";
+import "../styles/postcreate.css";
 
 interface PostCreatePageProps {
   isOpen: boolean;
