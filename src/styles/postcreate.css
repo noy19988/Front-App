@@ -1,7 +1,4 @@
-  /* post create css */
-
-
-/* שכבת רקע כהה */
+/* 🎯 רקע שקוף כאשר המודל פתוח */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -10,104 +7,158 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
-}
-
-/* עיצוב המודאל עצמו */
-.modal-content {
-  background: white;
   padding: 20px;
-  width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
 }
 
-/* כותרת */
-.modal-content h2 {
-  margin-bottom: 10px;
-}
-
-/* אזור הטקסט */
-textarea {
+/* 🎯 תיבת יצירת פוסט */
+.modal-content {
+  background: #1a1a1b;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   width: 100%;
-  height: 100px;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* ✅ ריווח אחיד */
+  animation: fadeIn 0.3s ease-in-out;
+  max-height: 85vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #7d7b7a #272729;
+}
+
+/* 🎯 התאמת פס גלילה ל-Chrome */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+/* 🎯 כותרת */
+.modal-content h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #e4e6eb;
+  margin-bottom: 14px;
+}
+
+/* 🎯 שדות קלט */
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  height: 48px; /* ✅ גובה אחיד לכל השדות */
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #3a3a3d;
+  background: #272729;
+  color: #e4e6eb;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+  margin-bottom: 14px;
+}
+
+/* 🎯 התאמת שדה הטקסט */
+.modal-content textarea {
+  height: 48px; /* ✅ גובה סטנדרטי ל-textarea */
   resize: none;
 }
 
-/* כפתורים */
+/* 🎯 ריווח נוסף אחרי Easy */
+.modal-content select {
+  margin-bottom: 18px !important;
+  
+}
+
+/* 🎯 שינוי הגבול לכתום בפוקוס */
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #ff4500 !important;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
+}
+
+/* 🎯 אזור העלאת תמונה */
+.image-upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1f1f1f;
+  padding: 12px;
+  border: 2px dashed #ff4500;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ff4500;
+  transition: all 0.3s;
+  min-height: 80px;
+  max-height: 220px;
+  overflow-y: auto;
+  margin-bottom: 14px;
+}
+
+/* 🎯 תצוגת תמונה */
+.image-preview {
+  width: 100%;
+  max-width: 280px;
+  max-height: 160px;
+  object-fit: contain;
+  display: block;
+  margin: 10px auto;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #1a1a1b;
+  padding: 5px;
+}
+
+/* 🎯 כפתורים */
 .modal-buttons {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.btn {
-  padding: 10px 15px;
+.modal-buttons button {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s;
+  width: 48%;
 }
 
-.save-btn {
-  background: blue;
+.submit-btn {
+  background: #ff4500;
   color: white;
 }
 
-.close-btn {
-  background: red;
-  color: white;
+.submit-btn:hover {
+  background: #e03d00;
 }
 
-.image-upload-container {
-  border: 2px dashed #ccc;
-  padding: 20px;
-  text-align: center;
-  cursor: pointer;
-  margin-bottom: 15px;
-  position: relative;
-  border-radius: 8px;
+.cancel-btn {
+  background: #3a3a3d;
+  color: #e4e6eb;
 }
 
-.image-upload-container p {
-  color: #777;
+.cancel-btn:hover {
+  background: #2c2c2f;
 }
 
-.image-upload-container input {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
+/* 🎯 התאמה למסכים קטנים */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%;
+    padding: 20px;
+  }
 }
-
-.image-preview {
-  max-width: 100%;
-  max-height: 200px;
-  border-radius: 8px;
-  display: block;
-  margin: auto;
-}
-
-
-/* שכבת רקע כהה עם שקיפות שמראה את העמוד מאחור */
-.modal-overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.5); /* ✅ רקע שקוף */
-display: flex;
-align-items: center;
-justify-content: center;
-z-index: 1000;
-backdrop-filter: blur(5px); /* ✅ טשטוש רקע */
-}
-
-

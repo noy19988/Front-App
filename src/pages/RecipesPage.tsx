@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import RecipeList from "../components/RecipeList";
+import { getUserDetails } from "../services/api-client";
 import "../styles/recipes.css";
+import "../styles/home.css";
 
 const RecipesPage: React.FC = () => {
   const [query, setQuery] = useState("");
@@ -20,6 +22,24 @@ const RecipesPage: React.FC = () => {
     }[]
   >([]);
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState<{ username: string } | null>(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const userId = localStorage.getItem("userId");
+      if (!userId) return;
+
+      try {
+        const userData = await getUserDetails(userId);
+        setUser(userData);
+      } catch {
+        localStorage.removeItem("token");
+        localStorage.removeItem("userId");
+      }
+    };
+    fetchUserData();
+  }, []);
+
 
   const handleSearch = async () => {
     if (!query.trim()) return;
@@ -35,8 +55,8 @@ const RecipesPage: React.FC = () => {
   };
 
   return (
-    <div className="recipes-page">
-      <Navbar user={{ username: "User" }} />
+    <div className="home-container">
+      <Navbar user={user} />
       <div className="content">
         <Sidebar />
         <main className="recipes-content">

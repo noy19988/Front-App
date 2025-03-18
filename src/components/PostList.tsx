@@ -16,7 +16,7 @@ const PostList: React.FC<PostListProps> = ({ posts, onPostDeleted }) => {
           <PostItem key={post._id} post={post} onDelete={onPostDeleted} />
         ))
       ) : (
-        <p className="no-posts">No posts available. Start by adding one! 😊</p>
+        <p className="no-posts"></p>
       )}
     </div>
   );

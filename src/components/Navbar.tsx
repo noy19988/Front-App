@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { FaUser, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import "../styles/home.css";
+import "../styles/navbar.css";
 
 const Navbar = ({ user }: { user: { username: string; profileImage?: string } | null }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);

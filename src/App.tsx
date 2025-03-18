@@ -7,7 +7,7 @@ import SavedPostsPage from './pages/SavedPostsPage';
 import MyPostsPage from './pages/MyPostsPage';
 import RecipesPage from './pages/RecipesPage';
 import ProfileOtherDetailsPage from "./pages/ProfileOtherDetailsPage"; // הוספת ייבוא
-import './styles/global.css';
+
 
 function App() {
   return (

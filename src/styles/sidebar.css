@@ -1,0 +1,41 @@
+/* 🎨 עיצוב ה-Sidebar בסגנון Reddit */
+.sidebar {
+    width: 230px;
+    background: linear-gradient(135deg, #1a1a1b, #232324);
+    padding: 20px;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    flex-shrink: 0;
+    border-right: 1px solid #3a3a3d;
+    height: 100vh;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 18px 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #d7dadc;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+

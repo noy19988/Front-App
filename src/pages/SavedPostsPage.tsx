@@ -5,7 +5,8 @@ import { getAllPosts, Post } from "../services/post-client";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import PostList from "../components/PostList";
-import "../styles/savedposts.css"; // עדכון שם הקובץ
+import "../styles/home.css";
+
 
 function SavePostsPage() {
     const navigate = useNavigate();
@@ -51,12 +52,11 @@ function SavePostsPage() {
     }, [navigate]);
 
     return (
-        <div className="save-posts-container">
+        <div className="home-container">
             <Navbar user={user} />
             <div className="content">
                 <Sidebar />
                 <div className="main-content">
-                    <h1 className="saved-posts-title">Saved Posts</h1>
                     <div className="post-list-container">
                         <PostList posts={savedPosts} onPostDeleted={fetchSavedPosts} />
                     </div>

@@ -60,7 +60,7 @@ const ProfileOtherDetailsPage: React.FC = () => {
                                 className="profile-other-image" // שינוי שם המחלקה
                             />
                             <div className="user-info">
-                                <h2>{user.username}</h2>
+                                <p>{user.username} </p>
                                 <p>Email: {user.email}</p>
                                 <p>Posts: {posts.length}</p>
                             </div>
