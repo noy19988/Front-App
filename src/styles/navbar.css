@@ -76,8 +76,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px; /* מגדיל את הגודל */
-    height: 36px;
+    width: 42px; /* מגדיל את הגודל */
+    height: 42px;
     border-radius: 50%;
     background: #eaebed;
     border: 1px solid #525252;
@@ -88,7 +88,9 @@
 }
 
 .profile-icon:hover {
-    border-color: orange; /* 🔶 מסגרת כתומה קלאסית */
+    border-color: orange; 
+    border-width: 3px; 
+
 }
   
 

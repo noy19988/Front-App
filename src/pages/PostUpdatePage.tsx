@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { updatePost } from "../services/post-client";
 import "../styles/postcreate.css";
 import { Post } from "../services/post-client";
+import Select, { components } from "react-select";
 
 interface PostUpdatePageProps {
     isOpen: boolean;
@@ -10,6 +11,18 @@ interface PostUpdatePageProps {
     onPostUpdated: () => void;
     post: Post;
 }
+
+const foodCategories = [
+    "Appetizers", "Breakfast", "Lunch", "Dinner", "Desserts", "Baking", "Vegan", "Vegetarian",
+    "Gluten-Free", "Dairy-Free", "Keto", "Paleo", "Grill", "Pasta", "Pizza", "Soups", "Salads",
+    "Asian", "Mexican", "Italian", "Indian", "Mediterranean", "Street Food", "BBQ", "Smoothies"
+  ];
+  
+  const categoryOptions = foodCategories.map((cat) => ({
+    value: cat,
+    label: cat,
+  }));
+  
 
 const PostUpdatePage: React.FC<PostUpdatePageProps> = ({ isOpen, onClose, onPostUpdated, post }) => {
     const navigate = useNavigate();
@@ -101,7 +114,38 @@ const PostUpdatePage: React.FC<PostUpdatePageProps> = ({ isOpen, onClose, onPost
                 <h2>Update Post</h2>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="recipeTitle" value={formData.recipeTitle} onChange={handleChange} required />
-                    <input type="text" name="category" value={formData.category.join(", ")} onChange={handleChange} required />
+                    <Select
+  isMulti
+  isSearchable={false}
+  closeMenuOnSelect={false}
+  hideSelectedOptions={false}
+  name="category"
+  options={categoryOptions}
+  className="react-select-container"
+  classNamePrefix="select"
+  placeholder="Select categories..."
+  value={categoryOptions.filter(opt => formData.category.includes(opt.value))}
+  onChange={(selectedOptions) =>
+    setFormData({
+      ...formData,
+      category: selectedOptions.map((opt) => opt.value),
+    })
+  }
+  components={{
+    MultiValue: () => null,
+    SingleValue: () => null,
+    ValueContainer: (props) => {
+      const selectedLabels = formData.category.join(", ");
+      return (
+        <components.ValueContainer {...props}>
+          <div className="selected-labels222">
+            {selectedLabels || "Select categories..."}
+          </div>
+        </components.ValueContainer>
+      );
+    }
+  }}
+/>
 
                     <div className="image-upload-container" onClick={() => fileInputRef.current?.click()}>
                         {previewImage ? <img src={previewImage} alt="Preview" className="image-preview" /> : <p>Click to update image</p>}

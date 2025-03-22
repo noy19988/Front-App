@@ -5,27 +5,28 @@
   border: 1px solid #444;
   border-radius: 8px;
   overflow: hidden;
-  margin: 15px auto;
+  margin: 10px auto;
   background: #1f1f1f;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   padding: 12px;
-  width: 80%;
+  width: 86%;
   max-width: 1000px; /* שמירה על רוחב נוח */
 }
 
 .post-image {
+  margin-top: 3px;
   width: 100%;
   height: auto;
   max-height: 350px;
   object-fit: cover;
   display: block;
   border-radius: 5px;
+  border: 0.1px solid rgb(255, 255, 255); /* הוספת גבול לבן */
 }
-
 .post-title {
   font-size: 16px;
   font-weight: bold;
-  color:#f3964f;
+  color: rgb(242, 220, 211);
   margin-bottom: 5px;
 }
 
@@ -109,6 +110,7 @@
   cursor: pointer;
   font-size: 12px;
 }
+
 
 .previous-comments {
   margin-top: 8px;
@@ -259,7 +261,8 @@
 }
 
 .saved .save-icon {
-  fill: rgb(242, 165, 11);
+  
+  fill: #fb5b1c;
 }
 
 .author-details {
@@ -272,8 +275,62 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-  color:#f3964f;
-  font-size: 14px;
-  text-align: left;  
+  color:#fb5b1c;
+  font-size: 13px;
+  text-align: left; 
+  white-space: nowrap; /* מונע מעבר שורה */
+
 }
+
+.post-section {
+  margin-top: 6px;
+  color: #f8f8f8;
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #bda595;
+  margin-bottom: 8px;
+}
+
+.post-list1 {
+  margin: 0;
+  padding-left: 2px; /* ← רווח פנימה רק לטקסט בתוך הרשימה */
+  list-style: none;
+}
+
+.post-list li {
+  font-size: 13px;
+  padding-left: 4px; /* ← רווח פנימה רק לטקסט בתוך הרשימה */
+  margin-bottom: 4px;
+  color: #dddfe3;
+  list-style: none;
+
+}
+
+.post-meta {
+  padding-left: 5px; /* תזוזה קטנה פנימה */
+  color: #bda595;
+  
+}
+
+.loading-text {
+  align-items: center;
+  font-size: 12px;
+  color: #ccc;
+  margin-left: 6px;
+}
+
+.post-prep-time1{
+  left: 0px;
+  transform: translateX(-4px); /* הזזה שמאלה ב-10 פיקסלים */
+}
+
+.field-label {
+  color: #bda595;
+  font-weight: bold; /* אופציונלי, אם אתה רוצה להדגיש גם */
+}
+
+
 

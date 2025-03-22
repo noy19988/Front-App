@@ -42,6 +42,7 @@ const formatCreatedAt = (dateString: string): string => {
 };
 
 const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
+    
     const [showComments, setShowComments] = useState(false);
     const [commentText, setCommentText] = useState("");
     const [comments, setComments] = useState<Comment[]>([]);
@@ -56,7 +57,8 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
     
 
     const userId = localStorage.getItem("userId");
-    const isOwner = userId === post.authorId._id;
+    const isOwner = userId && post.authorId?._id === userId;
+    
 
     useEffect(() => {
         const fetchComments = async () => {
@@ -80,6 +82,10 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
         const isPostSaved = post.savedBy.includes(userId || "");
         setSaved(isPostSaved);
     }, [post.savedBy, userId]);
+
+    if (!post.authorId) {
+        return null;
+    }
 
     const handleAddComment = async () => {
         if (!commentText.trim()) return;
@@ -172,8 +178,8 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
       <div className="post-item">
           <div className="post-header">
               <div className="post-author">
-                  <Link to={`/profile/${post.authorId._id}`}>
-                      <img src={post.authorId.imgUrl || "https://example.com/default-profile.png"} 
+                <Link to={post.authorId ? `/profile/${post.authorId._id}` : "#"}>
+                      <img src={post.authorId?.imgUrl || "https://example.com/default-profile.png"} 
                            alt={post.authorId.username} 
                            className="author-img" />
                   </Link>
@@ -206,11 +212,42 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
           </div>
   
           <div className="post-details">
+          <div className="post-meta">
               <h2 className="post-title">{post.recipeTitle}</h2>
-              <p className="post-category">Category: {post.category.join(", ")}</p>
-              <p className="post-difficulty">Difficulty: {post.difficulty}</p>
-              <p className="post-prep-time">Prep Time: {post.prepTime} min</p>
+              <p className="post-category">
+  <span className="field-label">📄 Category:</span> {post.category.join(", ")}
+</p>
+
+<p className="post-difficulty">
+  <span className="field-label">⚪ Difficulty:</span> {post.difficulty}
+</p>
+<div className="post-prep-time1">
+<p className="post-prep-time">
+  <span style={{ color: '#bda595', fontWeight: 'bold' }}>⏱️ Prep Time:</span> {post.prepTime} min
+</p>
+
+</div>
+
+              </div>
           </div>
+
+          <div className="post-section">
+            <h4 className="section-title">🧂 Ingredients:</h4>
+            <ul className="post-list1">
+                {post.ingredients.map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
+             ))}
+            </ul>
+           </div>
+
+           <div className="post-section">
+                <h4 className="section-title">📋 Instructions:</h4>
+                <div className="preserved-text">
+                {post.instructions.map((instruction, index) => (
+                    <li key={index}>{instruction}</li>
+                ))}
+                </div>
+            </div>
   
           {post.imageUrl && <img src={post.imageUrl} alt={post.recipeTitle} className="post-image" />}
   
@@ -229,7 +266,7 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
               <button className="nutrition-btn" onClick={handleGetNutrition}>
                   <RiRobot2Fill />  Generate nutrition value by AI
                 </button>
-                {loadingNutrition && <span>Loading...</span>}
+                {loadingNutrition && <span className="loading-text">Loading...</span>}
                 {nutrition && (
                     <span className="nutrition-info">
                         Calories: {nutrition.calories}, Protein: {nutrition.protein}g, Sugar: {nutrition.sugar}g

@@ -35,9 +35,12 @@ body {
 }
 
 .login-box:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 30px rgba(180, 60, 20, 0.4);
+  box-shadow: 0 10px 30px rgba(180, 60, 20, 0.6);
+  outline: 1px solid #b34724;
+  transition: all 0.3s ease;
+  
 }
+
 
 /* 🏷️ כותרת */
 h2 {

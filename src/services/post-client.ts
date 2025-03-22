@@ -28,6 +28,7 @@ export interface Post {
 export const getAllPosts = async (): Promise<Post[]> => {
     try {
       const response = await apiClient.get("/posts"); // 📌 שינוי הנתיב
+      console.log("📦 Posts from server:", response.data); // בדוק איך נראה authorId
       return response.data;
     } catch (error) {
       console.error("Error fetching posts:", error);

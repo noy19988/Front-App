@@ -162,3 +162,164 @@
     padding: 20px;
   }
 }
+
+
+/* 🎯 בסיס הקונטיינר */
+.react-select-container {
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #e4e6eb;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* 🎯 שדה הבחירה הראשי */
+.select__control {
+  background-color: #272729 !important;
+  border-color: #3a3a3d !important;
+  color: #e4e6eb !important;
+  border-radius: 6px;
+  min-height: 42px !important;
+  height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+/* 🎯 בעת פוקוס */
+.select__control--is-focused {
+  border-color: #ff4500 !important;
+  box-shadow: 0 0 5px rgba(255, 69, 0, 0.5) !important;
+}
+
+/* 🎯 טקסט placeholder ו-value רגיל */
+.select__placeholder,
+.select__single-value {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center; /* למרכז גם אופקית אם רוצים */
+  height: 100% !important;
+  font-size: 13px;
+  color: #aaa !important;
+  padding-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* 🎯 אזור התוכן הפנימי של השדה */
+.select__value-container {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  padding: 0 8px !important;
+  overflow-x: auto;
+}
+
+/* 🎯 אזור החץ (indicators) */
+.select__indicators {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  padding: 0 8px !important;
+  color: #e4e6eb !important;
+}
+
+/* 🎯 תפריט הבחירה */
+.select__menu {
+  background-color: #1f1f1f !important;
+  border-radius: 6px;
+  z-index: 9999;
+  margin-top: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 🎯 פריט בתפריט */
+.select__option {
+  background-color: #1f1f1f !important;
+  color: #e4e6eb !important;
+  font-size: 13px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 🎯 hover */
+.select__option--is-focused {
+  background-color: #3a3a3d !important;
+}
+
+/* 🎯 פריט נבחר */
+.select__option--is-selected {
+  background-color: #ff450030 !important;
+  font-weight: bold;
+}
+
+/* 🎯 checkbox ליד פריט */
+.select__option::before {
+  content: "☐";
+  display: inline-block;
+  margin-right: 8px;
+  color: #ff4500;
+  width: 14px;
+}
+
+.select__option--is-selected::before {
+  content: "☑";
+}
+
+/* 🎯 תגיות במצב multiple */
+.select__multi-value {
+  background-color: #3a3a3d;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #e4e6eb;
+}
+
+/* 🎯 טקסט בתגית */
+.select__multi-value__label {
+  color: #e4e6eb;
+  padding-right: 6px;
+}
+
+/* 🎯 כפתור הסרה בתגית */
+.select__multi-value__remove {
+  color: #ff4500;
+  opacity: 1 !important;
+  visibility: visible !important;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.select__multi-value__remove:hover {
+  color: #ff2200;
+}
+
+
+.selected-labels222{
+  color: #827d7d !important;
+  padding-left: 8px;
+  color: #e4e6eb;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
