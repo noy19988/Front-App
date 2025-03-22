@@ -1,85 +1,125 @@
-/* 🎨 עיצוב כללי של הדף */
+/* עיצוב כללי של הדף */
 .home-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    font-size: 20px;
+    font-size: 18px;
     background: #1a1a1b;
     color: #d7dadc;
-    overflow: hidden;  /* חוסם גלילה בעמוד הראשי */
+    overflow: hidden;
 }
 
-/* ✅ מסדר את כל התוכן במרכז */
+/* מסדר את כל התוכן במרכז */
 .content {
     display: flex;
     flex: 1;
     width: 100%;
     height: calc(100vh - 80px);
-    background-color: #1a1a1b;
-    position: relative; /* מאפשר לנו למקם את הכפתור */
+    position: relative;
 }
 
 .main-content {
     flex-grow: 1;
-    padding: 5px 20px 20px 20px; /* צמצום ה-padding העליון */
+    padding: 10px 15px;
     background: #1a1a1b;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    max-width: 850px;
+    max-width: 800px;
     margin: 0 auto;
     width: 100%;
 }
 
 .create-post-btn {
     position: absolute;
-    top: 19px;
-    left: 250px; /* דוחף אותו שמאלה אחרי הסיידבר */
-    padding: 8px 14px;
+    top: 32.5px;
+    left: 680px;
+    padding: 6px 12px;
     background: linear-gradient(135deg, #b34724, #8c3c1d);
     color: white;
-    font-size: 14px;
+    font-size: 13px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s;
-    box-shadow: 0px 4px 10px rgba(179, 71, 36, 0.3);
+    box-shadow: 0px 3px 8px rgba(179, 71, 36, 0.3);
+    width: 126px; /* הגדלת רוחב הכפתור */
 }
-
 
 .create-post-btn:hover {
     background: linear-gradient(135deg, #c8572b, #a23e20);
-    box-shadow: 0px 8px 20px rgba(179, 71, 36, 0.5);
+    box-shadow: 0px 6px 15px rgba(179, 71, 36, 0.5);
 }
-
-/* ✅ רשימת הפוסטים */
-.post-list-container {
-    flex: 1;
-    width: 100%;
-    max-width: 850px;  /* מגביל את הרוחב כך שייראה כמו ב-Reddit */
-    margin-left: -170px; /* דחיפה שמאלה */
-    padding:  0px;
-    overflow-y: auto; /* גלילה רק אם יש יותר מהמסך */
-    scrollbar-color: #444 #1a1a1b;
-    scrollbar-width: thin;
-}
-/* postlist.css */
-
 
 /* רשימת הפוסטים */
+.post-list-container1 {
+    flex: 1;
+    width: 200%;
+    max-width: 800px;
+    margin-left: -160px;
+    padding: 5px;
+    overflow-y: auto;
+    scrollbar-color: #444 #1a1a1b;
+    scrollbar-width: thin;
+    flex-shrink: 0;
+    height: calc(100vh - 200px); /* או חישוב אחר */
+}
+
 .post-list {
     width: 100%;
-    max-width: 800px; /* שלא יתפשט מדי */
-    margin: 0px auto; 
+    max-width: 780px;
+    margin: 0px;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* ריווח טוב בין פוסטים */
-    margin-left: -40px;
-  }
-  
-  
+    gap: 5px;
+    margin-left: -35px;
+}
+
+/* עיצוב למסננים */
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: -3px;
+    margin-top: -2px;
+    transform: translateX(-28px);
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 200px;
+}
+
+.filter label {
+    text-align: center;
+    font-size: 13px;
+    color: #d7dadc;
+}
+
+.filter select {
+    padding: 8px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: #2a2a2b;
+    color: #d7dadc;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s ease; /* הוספת מעבר חלק */
+}
+
+.filter select:hover {
+    border-color: #b34724; /* מסגרת כתומה בעת ריחוף */
+}
+
+.filter select:focus {
+    outline: none;
+    border-color: #b34724; /* מסגרת כתומה בעת לחיצה */
+}
 
 
-
+.post-item:first-child {
+  margin-top: 10px; /* צמצם את המרווח העליון של הפוסט הראשון ב-10 פיקסלים */
+}

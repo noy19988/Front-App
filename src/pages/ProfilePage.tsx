@@ -84,7 +84,7 @@ const ProfilePage = () => {
   return (
     <div className="home-container">
       {/* הניווט העליון */}
-      <Navbar user={user} />
+      <Navbar user={user} onSearch={() => {}} /> {/* הוספת onSearch */}
 
       <div className="content">
         {/* הסרגל הצדדי */}

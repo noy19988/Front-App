@@ -28,12 +28,21 @@ export interface Post {
 export const getAllPosts = async (): Promise<Post[]> => {
     try {
       const response = await apiClient.get("/posts"); // 📌 שינוי הנתיב
-      console.log("📦 Posts from server:", response.data); // בדוק איך נראה authorId
       return response.data;
     } catch (error) {
       console.error("Error fetching posts:", error);
       throw error;
     }
+};
+
+export const searchPosts = async (searchQuery: string): Promise<Post[]> => {
+  try {
+    const response = await apiClient.get(`/posts/search?search=${searchQuery}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    throw error;
+  }
 };
 
 
@@ -123,6 +132,25 @@ export const getPostNutrition = async (postId: string): Promise<{ calories: numb
 
 
 
+export const filterPosts = async (searchQuery: string, difficulty: string | null, category: string | null): Promise<Post[]> => {
+  try {
+    let url = `/posts/search?search=${searchQuery}`;
+
+    if (difficulty && difficulty !== "null") {
+      url += `&difficulty=${difficulty}`;
+    }
+
+    if (category && category !== "null") {
+      url += `&category=${category}`;
+    }
+
+    const response = await apiClient.get(url);
+    return response.data;
+  } catch (error) {
+    console.error("Error filtering posts:", error);
+    throw error;
+  }
+};
 
 
 

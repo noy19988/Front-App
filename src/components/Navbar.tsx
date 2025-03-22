@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import {FaSearch,FaUserCircle } from "react-icons/fa";
+import { FaSearch, FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "../styles/navbar.css";
 
-const Navbar = ({ user }: { user: { username: string; imgUrl?: string } | null }) => {
+const Navbar = ({ user, onSearch }: { user: { username: string; imgUrl?: string } | null, onSearch: (searchQuery: string) => void }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [imgError, setImgError] = useState(false); // 💡 סטייט חדש
+  const [imgError, setImgError] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // ✨ הוספנו סטייט לשאילתת החיפוש
+  const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(null); // ✨ סטייט לעיכוב
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
@@ -17,6 +19,25 @@ const Navbar = ({ user }: { user: { username: string; imgUrl?: string } | null }
 
   const handleProfileClick = () => {
     navigate("/profile");
+  };
+
+  const handleSearch = (query: string) => {
+    onSearch(query); 
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newSearchQuery = e.target.value;
+    setSearchQuery(newSearchQuery);
+
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout);
+    }
+
+    const timeout = setTimeout(() => {
+      handleSearch(newSearchQuery);
+    }, 300);
+
+    setDebounceTimeout(timeout); 
   };
 
   useEffect(() => {
@@ -39,7 +60,12 @@ const Navbar = ({ user }: { user: { username: string; imgUrl?: string } | null }
       </div>
 
       <div className="search-bar">
-        <input type="text" placeholder="Search..." />
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleInputChange} // במקום onChange הרגיל, נשתמש במתודה הזו
+        />
         <FaSearch className="search-icon" />
       </div>
 
@@ -66,7 +92,7 @@ const Navbar = ({ user }: { user: { username: string; imgUrl?: string } | null }
               }}
               onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#b34724")}
               onMouseLeave={(e) => (e.currentTarget.style.borderColor = "transparent")}
-              onError={() => setImgError(true)} // ✅ אם טעינה נכשלה – מציג אייקון
+              onError={() => setImgError(true)} // אם טעינה נכשלה – מציג אייקון
             />
           ) : (
             <FaUserCircle className="default-profile-icon" />

@@ -48,7 +48,7 @@ const ProfileOtherDetailsPage: React.FC = () => {
 
     return (
         <div className="home-container">
-            <Navbar user={user} />
+            <Navbar user={user} onSearch={() => {}} /> {/* הוספת onSearch */}
             <div className="content">
                 <Sidebar />
                 <div className="main-content">
