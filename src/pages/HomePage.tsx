@@ -11,7 +11,7 @@ import "../styles/home.css";
 
 function HomePage() {
   const navigate = useNavigate();
-  const [user, setUser] = useState<{ username: string } | null>(null);
+  const [user, setUser] = useState<{ username: string; imgUrl?: string } | null>(null);
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
   const [posts, setPosts] = useState<Post[]>([]);
 
