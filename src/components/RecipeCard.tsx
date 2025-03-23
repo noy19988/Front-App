@@ -15,16 +15,26 @@ interface RecipeCardProps {
   };
 }
 
+const removeLinks = (html: string) => {
+  // הסרת כל תגי <a> מתוך ה-HTML
+  return html.replace(/<a[^>]*>/g, '').replace(/<\/a>/g, '');
+};
+
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
+  // פונקציה שמסירה תגי קישור (לינקים)
+
   return (
     <div className="recipe-card">
       <img src={recipe.image} alt={recipe.title} className="recipe-image" />
       <h3 className="recipe-title">{recipe.title}</h3>
-      <p>Time :{recipe.readyInMinutes} min</p>
-      <p>Servings : {recipe.servings}</p>
-      <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
+      <p>Time: {recipe.readyInMinutes} min</p>
+      <p>Servings: {recipe.servings}</p>
 
-      <p>Ingredients :</p>
+      {/* סיכום המתכון עם HTML, לאחר הסרת קישורים */}
+      <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: removeLinks(recipe.summary || "No summary available.") }}></p>
+
+      <p>Ingredients:</p>
+      {/* הצגת רכיבים */}
       {recipe.extendedIngredients && recipe.extendedIngredients.length > 0 ? (
         <ul>
           {recipe.extendedIngredients.map((ingredient, index) => (
@@ -37,9 +47,11 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
         <p>No ingredients available.</p>
       )}
 
-      <p>Instructions :</p>
-      <p>{recipe.instructions || "No instructions available."}</p>
+      <p>Instructions:</p>
+      {/* הצגת הוראות הכנה עם HTML, לאחר הסרת קישורים */}
+      <div className="recipe-instructions" dangerouslySetInnerHTML={{ __html: removeLinks(recipe.instructions || "No instructions available.") }}></div>
 
+      {/* הצגת תזונה אם קיימת */}
       {recipe.nutrition && recipe.nutrition.nutrients.length > 0 ? (
         <>
           <p>Nutrition Facts:</p>
@@ -57,5 +69,8 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
     </div>
   );
 };
+
+
+
 
 export default RecipeCard;

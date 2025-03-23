@@ -7,15 +7,19 @@
   padding: 20px;
 }
 
-
 .search-container {
+  position: sticky; /* מיקום אבסולוטי */
+  top: px; /* מרחק מהקצה העליון */
+  display: flex;
+  left: 50%; /* מיקום אופקי באמצע */
+  transform: translateX(-50%); /* הזזה כדי למרכז בדיוק */
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  
 }
-
-.search-input {
+.search-input4 {
   padding: 12px;
   width: 320px;
   font-size: 16px;
@@ -88,6 +92,15 @@
   width: 100%;
   max-width: 1200px;
   padding-right: 10px;
+  padding-top: 70px;
   
 }
 
+.loading {
+  position: absolute; /* מיקום אבסולוטי */
+  top: 50%; /* מיקום אנכי באמצע */
+  left: 50%; /* מיקום אופקי באמצע */
+  transform: translate(-50%, -50%); /* הזזה כדי למרכז בדיוק */
+  font-size: 18px;
+  color: #ccc;
+}

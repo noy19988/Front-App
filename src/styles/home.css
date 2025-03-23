@@ -20,6 +20,7 @@
 }
 
 .main-content {
+    
     flex-grow: 1;
     padding: 10px 15px;
     background: #1a1a1b;
@@ -30,6 +31,7 @@
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
+
 }
 
 .create-post-btn {
@@ -52,19 +54,19 @@
     background: linear-gradient(135deg, #c8572b, #a23e20);
     box-shadow: 0px 6px 15px rgba(179, 71, 36, 0.5);
 }
-
 /* רשימת הפוסטים */
 .post-list-container1 {
+    box-sizing: border-box !important;
     flex: 1;
-    width: 200%;
+    width: 100%; /* השתמש ברוחב מלא */
     max-width: 800px;
     margin-left: -160px;
     padding: 5px;
-    overflow-y: auto;
+    overflow-y: auto !important; /* אפשר גלילה כאשר התוכן עולה על הגובה */
     scrollbar-color: #444 #1a1a1b;
     scrollbar-width: thin;
-    flex-shrink: 0;
-    height: calc(100vh - 200px); /* או חישוב אחר */
+    height: auto !important; /* מאפשר גובה דינמי שיתעדכן לפי התוכן */
+    max-height: calc(100vh - 120px) !important; /* גובה מקסימלי שלא יעלה יותר מידי */
 }
 
 .post-list {
@@ -120,6 +122,20 @@
 }
 
 
-.post-item:first-child {
-  margin-top: 10px; /* צמצם את המרווח העליון של הפוסט הראשון ב-10 פיקסלים */
-}
+/* פוסט ראשון */
+.post-list .post-item:first-child {
+    margin-top: 10px !important; /* צמצם את המרווח העליון של הפוסט הראשון ב-10 פיקסלים, עם !important כדי לשמור על זה */
+  }
+
+  .post-list-container-myposts,
+  .post-list-container-saved {
+      width: 100%;
+      max-width: 800px;
+      padding: 5px;
+      overflow-y: auto; /* מאפשר גלילה */
+      height: calc(100vh - 140px); /* גובה דינמי כדי שתהיה גלילה אם התוכן עולה על הגובה */
+      scrollbar-color: #444 #1a1a1b;
+      scrollbar-width: thin;
+      margin-left: -180px;
+  }
+  

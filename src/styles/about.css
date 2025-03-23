@@ -1,0 +1,54 @@
+.about-page {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* שינוי ל-center למרכז אנכית */
+    height: 80vh; /* גובה מסך מלא */
+    padding: 230px; /* רווח למקרה של מסכים קטנים */
+    box-sizing: border-box;
+}
+
+.about-container {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    padding: 30px;
+    width: 85%;
+    max-width: 1000px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    margin-top: 40px; /* מרחק קל מלמעלה */
+}
+
+.glass-text {
+    font-size: 26px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(45deg, #ff5a5f, #e07a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+}
+
+.about-description {
+    color: #cfcfcf;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.section-title-about {
+    font-size: 20px;
+    color: #ff5a5f;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ff5a5f;
+}
+
+.section ul {
+    list-style-type: none;
+    padding-left: 0;
+    color: #d7dadc;
+}
+
+.section li {
+    margin-bottom: 8px;
+    font-size: 13px;
+}

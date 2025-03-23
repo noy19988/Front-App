@@ -9,7 +9,7 @@
   background: #1f1f1f;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   padding: 12px;
-  width: 86%;
+  width: 89%;
   max-width: 1000px; /* שמירה על רוחב נוח */
 }
 
@@ -332,8 +332,3 @@
   font-weight: bold; /* אופציונלי, אם אתה רוצה להדגיש גם */
 }
 
-
-
-.post-item:first-child {
-  margin-top: -10px; /* צמצם את המרווח העליון של הפוסט הראשון ב-10 פיקסלים */
-}

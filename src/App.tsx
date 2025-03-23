@@ -6,7 +6,8 @@ import ProfilePage from './pages/ProfilePage';
 import SavedPostsPage from './pages/SavedPostsPage';
 import MyPostsPage from './pages/MyPostsPage';
 import RecipesPage from './pages/RecipesPage';
-import ProfileOtherDetailsPage from "./pages/ProfileOtherDetailsPage"; // הוספת ייבוא
+import ProfileOtherDetailsPage from "./pages/ProfileOtherDetailsPage";
+import AboutPage from './pages/AboutPage';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/my-posts" element={<MyPostsPage />} />
         <Route path="/recipes" element={<RecipesPage />} /> 
         <Route path="/profile/:userId" element={<ProfileOtherDetailsPage />} /> {/* הוספת נתיב */}
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </BrowserRouter>
   );

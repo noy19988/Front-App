@@ -51,11 +51,11 @@ function MyPostsPage() {
 
     return (
         <div className="home-container">
-            <Navbar user={user} />
+      <     Navbar user={user} onSearch={() => {}} /> {/* הוספת onSearch */}
             <div className="content">
                 <Sidebar />
                 <div className="main-content">
-                    <div className="post-list-container">
+                    <div className="post-list-container-myposts">
                         <PostList posts={posts} onPostDeleted={fetchPosts} />
                     </div>
                 </div>
