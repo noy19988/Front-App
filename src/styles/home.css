@@ -34,10 +34,22 @@
 
 }
 
+.filters-container { /* עוטף את המסננים ואת כפתור יצירת פוסט */
+    display: flex;
+    justify-content: flex-start; /* יישור לשמאל */
+    align-items: center; /* ליישור אנכי של האלמנטים */
+    margin-bottom: -3px;
+    margin-top: -2px;
+    transform: translateX(11.5px); /* הזזה ימינה (פחות) */
+    width: 100%; /* הגדרת רוחב מלא כדי להתאים לפוסטים */
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+}
+
 .create-post-btn {
-    position: absolute;
-    top: 32.5px;
-    left: 680px;
     padding: 6px 12px;
     background: linear-gradient(135deg, #b34724, #8c3c1d);
     color: white;
@@ -47,13 +59,15 @@
     cursor: pointer;
     transition: all 0.3s;
     box-shadow: 0px 3px 8px rgba(179, 71, 36, 0.3);
-    width: 126px; /* הגדלת רוחב הכפתור */
+    width: 126px;
+    margin-top: 21px; /* הורדת הכפתור למטה (פחות) */
 }
 
 .create-post-btn:hover {
     background: linear-gradient(135deg, #c8572b, #a23e20);
     box-shadow: 0px 6px 15px rgba(179, 71, 36, 0.5);
 }
+
 /* רשימת הפוסטים */
 .post-list-container1 {
     box-sizing: border-box !important;
@@ -138,4 +152,3 @@
       scrollbar-width: thin;
       margin-left: -180px;
   }
-  

@@ -46,7 +46,7 @@ const handleSearch = async () => {
   try {
     // שליפת המתכונים
     const response = await fetch(
-      `http://localhost:3000/api/recipes/search?query=${query}`
+      `https://node115.cs.colman.ac.il/api/recipes/search?query=${query}`
     );
     const data = await response.json();
     console.log("Fetched recipes:", data.recipes);
@@ -71,7 +71,7 @@ const handleSearch = async () => {
     const detailedRecipes: Recipe[] = await Promise.all(
       data.recipes.map(async (recipe: { id: number }) => {
         const recipeDetailsResponse = await fetch(
-          `http://localhost:3000/api/recipes/${recipe.id}`
+          `https://node115.cs.colman.ac.il/api/recipes/${recipe.id}`
         );
         const recipeDetails: RecipeDetails = await recipeDetailsResponse.json();
         return recipeDetails.recipeDetails; // הנתונים המלאים של המתכון

@@ -9,10 +9,9 @@ import RecipesPage from './pages/RecipesPage';
 import ProfileOtherDetailsPage from "./pages/ProfileOtherDetailsPage";
 import AboutPage from './pages/AboutPage';
 
-
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter> {}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -21,7 +20,7 @@ function App() {
         <Route path="/saved-posts" element={<SavedPostsPage />} />
         <Route path="/my-posts" element={<MyPostsPage />} />
         <Route path="/recipes" element={<RecipesPage />} /> 
-        <Route path="/profile/:userId" element={<ProfileOtherDetailsPage />} /> {/* הוספת נתיב */}
+        <Route path="/profile/:userId" element={<ProfileOtherDetailsPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
     </BrowserRouter>

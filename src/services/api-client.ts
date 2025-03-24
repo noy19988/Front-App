@@ -1,7 +1,11 @@
 import axios, { AxiosError } from "axios";
 
+
+
+const backend_url = import.meta.env.VITE_BACKKEND_URL
+
 const apiClient = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: backend_url,
   headers: {
     "Content-Type": "application/json",
   },

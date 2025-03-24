@@ -72,12 +72,12 @@ const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPost
       formDataToSend.append("instructions", JSON.stringify(formData.instructions));
       if (imageFile) formDataToSend.append("image", imageFile);
 
-      const response = await fetch("http://localhost:3000/posts", {
+      const response = await fetch("https://node115.cs.colman.ac.il/posts", {
         method: "POST",
         body: formDataToSend,
         headers: {
           "Authorization": `Bearer ${localStorage.getItem("token")}`
-        }
+        } 
       });
 
       if (!response.ok) throw new Error("Post creation failed");

@@ -50,7 +50,7 @@ function LoginPage() {
         throw new Error("Google credential is missing");
       }
   
-      const res = await fetch("http://localhost:3000/auth/google-login", {
+      const res = await fetch("https://node115.cs.colman.ac.il/auth/google-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: credentialResponse.credential }),

@@ -1,4 +1,3 @@
-import React, { ChangeEvent, KeyboardEvent } from "react";
 
 interface InputProps {
   type: string;

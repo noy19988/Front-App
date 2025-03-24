@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllPosts, Post, filterPosts } from "../services/post-client";
@@ -37,7 +27,7 @@ function HomePage() {
   };
 
   const handleSearch = async (query: string) => {
-    setSearchQuery(query); // עדכון ה search query ב state
+    setSearchQuery(query);
     try {
       const data = await filterPosts(query, difficulty, category);
       setPosts(data);
@@ -104,12 +94,6 @@ function HomePage() {
       <Navbar user={user} onSearch={handleSearch} />
       <div className="content">
         <Sidebar />
-        <button
-          className="create-post-btn"
-          onClick={() => setIsPostModalOpen(true)}
-        >
-          Create Post
-        </button>
         <div className="main-content">
           <PostCreatePage
             isOpen={isPostModalOpen}
@@ -117,36 +101,44 @@ function HomePage() {
             onPostCreated={fetchPosts}
           />
 
-          <div className="filters">
-            <div className="filter">
-              <label htmlFor="difficulty">Difficulty</label>
-              <select
-                id="difficulty"
-                value={difficulty || ""}
-                onChange={handleDifficultyChange}
-              >
-                <option value="">All</option>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-              </select>
-            </div>
+          <div className="filters-container"> {/* עוטף את המסננים ואת כפתור יצירת פוסט */}
+            <div className="filters">
+              <div className="filter">
+                <label htmlFor="difficulty">Difficulty</label>
+                <select
+                  id="difficulty"
+                  value={difficulty || ""}
+                  onChange={handleDifficultyChange}
+                >
+                  <option value="">All</option>
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+              </div>
 
-            <div className="filter">
-              <label htmlFor="category">Category</label>
-              <select
-                id="category"
-                value={category || ""}
-                onChange={handleCategoryChange}
-              >
-                <option value="">All</option>
-                <option value="Italian">Italian</option>
-                <option value="Pasta">Pasta</option>
-                <option value="Dessert">Dessert</option>
-                <option value="Salads">Salads</option>
-                <option value="Healthy">Healthy</option>
-              </select>
+              <div className="filter">
+                <label htmlFor="category">Category</label>
+                <select
+                  id="category"
+                  value={category || ""}
+                  onChange={handleCategoryChange}
+                >
+                  <option value="">All</option>
+                  <option value="Italian">Italian</option>
+                  <option value="Pasta">Pasta</option>
+                  <option value="Dessert">Dessert</option>
+                  <option value="Salads">Salads</option>
+                  <option value="Healthy">Healthy</option>
+                </select>
+              </div>
             </div>
+            <button
+              className="create-post-btn"
+              onClick={() => setIsPostModalOpen(true)}
+            >
+              Create Post
+            </button>
           </div>
 
           <div className="post-list-container1">
