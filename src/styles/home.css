@@ -40,7 +40,7 @@
     align-items: center; /* ליישור אנכי של האלמנטים */
     margin-bottom: -3px;
     margin-top: -2px;
-    transform: translateX(11.5px); /* הזזה ימינה (פחות) */
+    transform: translateX(-20px); /* הזזה ימינה (פחות) */
     width: 100%; /* הגדרת רוחב מלא כדי להתאים לפוסטים */
 }
 
@@ -74,7 +74,7 @@
     flex: 1;
     width: 100%; /* השתמש ברוחב מלא */
     max-width: 800px;
-    margin-left: -160px;
+    margin-left: -215px;
     padding: 5px;
     overflow-y: auto !important; /* אפשר גלילה כאשר התוכן עולה על הגובה */
     scrollbar-color: #444 #1a1a1b;
@@ -99,9 +99,8 @@
     gap: 15px;
     margin-bottom: -3px;
     margin-top: -2px;
-    transform: translateX(-28px);
+    transform: translateX(-28px); /* ← זו כנראה הבעיה */
 }
-
 .filter {
     display: flex;
     flex-direction: column;
@@ -152,3 +151,8 @@
       scrollbar-width: thin;
       margin-left: -180px;
   }
+
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}

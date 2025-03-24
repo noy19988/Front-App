@@ -41,16 +41,14 @@ const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPost
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-
-    if (name === "prepTime") {
-      const numericValue = value === "" ? "" : parseInt(value, 10);
-      setFormData({ ...formData, [name]: isNaN(numericValue as number) ? "" : numericValue });
-    } else if (name === "ingredients" || name === "instructions") {
-      setFormData({ ...formData, [name]: value.split(",") });
+    if (name === "ingredients" || name === "instructions") {
+        setFormData({ ...formData, [name]: value.split("\n") }); // פיצול לפי מעברי שורה
+    } else if (name === "category") {
+        setFormData({ ...formData, [name]: value.split(",").map((item) => item.trim()) }); // פיצול לפי פסיקים
     } else {
-      setFormData({ ...formData, [name]: value });
+        setFormData({ ...formData, [name]: value });
     }
-  };
+};
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -183,9 +181,9 @@ const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPost
 
           <input type="number" name="prepTime" placeholder="Preparation Time (min)" value={formData.prepTime} onChange={handleChange} min="0" required />
 
-          <textarea name="ingredients" placeholder="Ingredients (comma separated)" value={formData.ingredients.join(", ")} onChange={handleChange} required />
+          <textarea name="ingredients" placeholder="Ingredients (comma separated)" value={formData.ingredients.join("\n")} onChange={handleChange} required />
 
-          <textarea name="instructions" placeholder="Instructions (comma separated)" value={formData.instructions.join(", ")} onChange={handleChange} required />
+          <textarea name="instructions" placeholder="Instructions (comma separated)" value={formData.instructions.join("\n")} onChange={handleChange} required />
 
           <div className="modal-buttons">
             <button type="submit" className="btn save-btn">Post</button>

@@ -124,12 +124,33 @@ function HomePage() {
                   value={category || ""}
                   onChange={handleCategoryChange}
                 >
-                  <option value="">All</option>
-                  <option value="Italian">Italian</option>
-                  <option value="Pasta">Pasta</option>
-                  <option value="Dessert">Dessert</option>
-                  <option value="Salads">Salads</option>
-                  <option value="Healthy">Healthy</option>
+                    <option value="">All</option>
+                    <option value="Appetizers">Appetizers</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Baking">Baking</option>
+                    <option value="Vegan">Vegan</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Gluten-Free">Gluten-Free</option>
+                    <option value="Dairy-Free">Dairy-Free</option>
+                    <option value="Keto">Keto</option>
+                    <option value="Paleo">Paleo</option>
+                    <option value="Grill">Grill</option>
+                    <option value="Pasta">Pasta</option>
+                    <option value="Pizza">Pizza</option>
+                    <option value="Soups">Soups</option>
+                    <option value="Salads">Salads</option>
+                    <option value="Asian">Asian</option>
+                    <option value="Mexican">Mexican</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Mediterranean">Mediterranean</option>
+                    <option value="Street Food">Street Food</option>
+                    <option value="BBQ">BBQ</option>
+                    <option value="Smoothies">Smoothies</option>
+
                 </select>
               </div>
             </div>

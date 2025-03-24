@@ -5,12 +5,13 @@ import { getPostsByUser, Post } from "../services/post-client";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import PostList from "../components/PostList";
-import "../styles/profileOtherDetails.css"; // יצירת קובץ עיצוב חדש
+import "../styles/profileOtherDetails.css";
 
 const ProfileOtherDetailsPage: React.FC = () => {
     const { userId } = useParams<{ userId: string }>();
     const navigate = useNavigate();
-    const [user, setUser] = useState<{ _id: string; username: string; email: string; imgUrl?: string } | null>(null);
+    const [viewedUser, setViewedUser] = useState<{ _id: string; username: string; email: string; imgUrl?: string } | null>(null);
+    const [loggedInUser, setLoggedInUser] = useState<{ username: string; imgUrl?: string } | null>(null); // משתמש מחובר
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -22,11 +23,17 @@ const ProfileOtherDetailsPage: React.FC = () => {
             }
 
             try {
-                const userData = await getUserDetails(userId);
-                setUser(userData);
+                const viewedUserData = await getUserDetails(userId);
+                setViewedUser(viewedUserData);
 
                 const userPosts = await getPostsByUser(userId);
                 setPosts(userPosts);
+
+                const loggedInUserId = localStorage.getItem("userId");
+                if (loggedInUserId) {
+                    const loggedInUserData = await getUserDetails(loggedInUserId);
+                    setLoggedInUser(loggedInUserData);
+                }
             } catch (error) {
                 console.error("Error fetching user details or posts:", error);
                 navigate("/");
@@ -42,26 +49,26 @@ const ProfileOtherDetailsPage: React.FC = () => {
         return <div>Loading...</div>;
     }
 
-    if (!user) {
+    if (!viewedUser) {
         return <div>User not found.</div>;
     }
 
     return (
         <div className="home-container">
-            <Navbar user={user} onSearch={() => {}} /> {/* הוספת onSearch */}
+            <Navbar user={loggedInUser} onSearch={() => {}} /> {/* שימוש ב-loggedInUser */}
             <div className="content">
                 <Sidebar />
                 <div className="main-content">
                     <div className="profile-other-details">
                         <div className="user-details">
                             <img
-                                src={user.imgUrl || "https://example.com/default-profile.png"}
-                                alt={user.username}
-                                className="profile-other-image" // שינוי שם המחלקה
+                                src={viewedUser.imgUrl || "https://example.com/default-profile.png"}
+                                alt={viewedUser.username}
+                                className="profile-other-image"
                             />
                             <div className="user-info">
-                                <p>{user.username} </p>
-                                <p>Email: {user.email}</p>
+                                <p>{viewedUser.username} </p>
+                                <p>Email: {viewedUser.email}</p>
                                 <p>Posts: {posts.length}</p>
                             </div>
                         </div>

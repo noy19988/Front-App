@@ -3,32 +3,41 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    overflow-y: auto; /* הוספת גלילה אנכית לכל הקונטיינר */
-    max-height: calc(100vh - 80px); /* הגבלת גובה הקונטיינר */
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+    margin-left: -220px;
 }
-
 .user-details {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    background-color: #fff;
+    background: linear-gradient(135deg, 
+        #2c2c2c,   /* אפור כהה */
+        #222121 30%, /* אפור בינוני */
+        #b15212 100%,  /* כתום */
+        #1a1a1a);   /* שחור */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 900px;
-    
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    z-index: 2;
+    color: white; /* טקסט לבן כדי שיהיה קריא על הרקע הכהה */
+    text-align: center; /* מוסיף מרכוז טקסט */
 }
-
-.user-info{
-    font-size: 22px;  
+.user-info {
+    font-size: 19px;
     font-weight: bold;
-    margin-right: 20px;
+    margin-right: 22px;
     color: black;
+    text-align: center; /* מוסיף מרכוז טקסט */
+
 }
 
-
-.profile-other-image { /* שינוי שם המחלקה */
+.profile-other-image {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -37,8 +46,31 @@
 }
 
 .user-posts {
+    background-color: #1a1a1b;
     width: 100%;
     max-width: 1000px;
-    overflow-y: auto; /* הוספת גלילה אנכית לרשימת הפוסטים */
-    max-height: calc(100vh - 250px); /* הגבלת גובה רשימת הפוסטים */
+    overflow-y: auto;
+    max-height: calc(100vh - 250px);
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 1px; 
+}
+
+/* עבור WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
 }

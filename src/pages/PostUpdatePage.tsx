@@ -54,15 +54,19 @@ const PostUpdatePage: React.FC<PostUpdatePageProps> = ({ isOpen, onClose, onPost
             setPreviewImage(post.imageUrl || null);
         }
     }, [post]);
+    
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        if (name === "category" || name === "ingredients" || name === "instructions") {
-            setFormData({ ...formData, [name]: value.split(",").map((item) => item.trim()) });
+        if (name === "ingredients" || name === "instructions") {
+            setFormData({ ...formData, [name]: value.split("\n") }); // פיצול לפי מעברי שורה
+        } else if (name === "category") {
+            setFormData({ ...formData, [name]: value.split(",").map((item) => item.trim()) }); // פיצול לפי פסיקים
         } else {
             setFormData({ ...formData, [name]: value });
         }
     };
+    
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -158,8 +162,8 @@ const PostUpdatePage: React.FC<PostUpdatePageProps> = ({ isOpen, onClose, onPost
                         <option value="hard">Hard</option>
                     </select>
                     <input type="number" name="prepTime" value={formData.prepTime} onChange={handleChange} required />
-                    <textarea name="ingredients" value={formData.ingredients.join(", ")} onChange={handleChange} required />
-                    <textarea name="instructions" value={formData.instructions.join(", ")} onChange={handleChange} required />
+                    <textarea name="ingredients" value={formData.ingredients.join("\n")} onChange={handleChange} required />
+                    <textarea name="instructions" value={formData.instructions.join("\n")} onChange={handleChange} required />
                     <div className="modal-buttons">
                         <button type="submit" className="btn save-btn">Update</button>
                         <button type="button" className="btn close-btn" onClick={handleCancel}>Cancel</button>
