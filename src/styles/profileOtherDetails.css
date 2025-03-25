@@ -13,10 +13,10 @@
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, 
-        #2c2c2c,   /* אפור כהה */
-        #222121 30%, /* אפור בינוני */
-        #b15212 100%,  /* כתום */
-        #1a1a1a);   /* שחור */
+        #2c2c2c,   
+        #222121 30%, 
+        #b15212 100%,  
+        #1a1a1a);   
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -25,15 +25,15 @@
     margin-bottom: 4px;
     box-sizing: border-box;
     z-index: 2;
-    color: white; /* טקסט לבן כדי שיהיה קריא על הרקע הכהה */
-    text-align: center; /* מוסיף מרכוז טקסט */
+    color: white; 
+    text-align: center; 
 }
 .user-info {
     font-size: 19px;
     font-weight: bold;
     margin-right: 22px;
-    color: black;
-    text-align: center; /* מוסיף מרכוז טקסט */
+    color: rgb(207, 200, 196);
+    text-align: center; 
 
 }
 
@@ -57,7 +57,6 @@
     margin-top: 1px; 
 }
 
-/* עבור WebKit (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
     width: 10px;
 }

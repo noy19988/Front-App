@@ -1,4 +1,3 @@
-/* עיצוב כללי של הדף */
 .home-container {
     display: flex;
     flex-direction: column;
@@ -10,7 +9,6 @@
     overflow: hidden;
 }
 
-/* מסדר את כל התוכן במרכז */
 .content {
     display: flex;
     flex: 1;
@@ -20,7 +18,6 @@
 }
 
 .main-content {
-    
     flex-grow: 1;
     padding: 10px 15px;
     background: #1a1a1b;
@@ -34,14 +31,15 @@
 
 }
 
-.filters-container { /* עוטף את המסננים ואת כפתור יצירת פוסט */
+.filters-container { 
     display: flex;
-    justify-content: flex-start; /* יישור לשמאל */
-    align-items: center; /* ליישור אנכי של האלמנטים */
+    justify-content: flex-start; 
+    align-items: center; 
     margin-bottom: -3px;
     margin-top: -2px;
-    transform: translateX(-20px); /* הזזה ימינה (פחות) */
-    width: 100%; /* הגדרת רוחב מלא כדי להתאים לפוסטים */
+    transform: translateX(-20px); 
+    width: 100%; 
+    margin-left: 70px;
 }
 
 .filters {
@@ -60,7 +58,7 @@
     transition: all 0.3s;
     box-shadow: 0px 3px 8px rgba(179, 71, 36, 0.3);
     width: 126px;
-    margin-top: 21px; /* הורדת הכפתור למטה (פחות) */
+    margin-top: 21px; 
 }
 
 .create-post-btn:hover {
@@ -68,19 +66,18 @@
     box-shadow: 0px 6px 15px rgba(179, 71, 36, 0.5);
 }
 
-/* רשימת הפוסטים */
 .post-list-container1 {
     box-sizing: border-box !important;
     flex: 1;
-    width: 100%; /* השתמש ברוחב מלא */
+    width: 100%; 
     max-width: 800px;
-    margin-left: -215px;
+    margin-left: -140px;
     padding: 5px;
-    overflow-y: auto !important; /* אפשר גלילה כאשר התוכן עולה על הגובה */
+    overflow-y: auto !important; 
     scrollbar-color: #444 #1a1a1b;
     scrollbar-width: thin;
-    height: auto !important; /* מאפשר גובה דינמי שיתעדכן לפי התוכן */
-    max-height: calc(100vh - 120px) !important; /* גובה מקסימלי שלא יעלה יותר מידי */
+    height: auto !important; 
+    max-height: calc(100vh - 120px) !important; 
 }
 
 .post-list {
@@ -93,13 +90,12 @@
     margin-left: -35px;
 }
 
-/* עיצוב למסננים */
 .filters {
     display: flex;
     gap: 15px;
     margin-bottom: -3px;
     margin-top: -2px;
-    transform: translateX(-28px); /* ← זו כנראה הבעיה */
+    transform: translateX(-28px); 
 }
 .filter {
     display: flex;
@@ -122,22 +118,22 @@
     color: #d7dadc;
     font-size: 14px;
     cursor: pointer;
-    transition: border-color 0.3s ease; /* הוספת מעבר חלק */
+    transition: border-color 0.3s ease; 
 }
 
 .filter select:hover {
-    border-color: #b34724; /* מסגרת כתומה בעת ריחוף */
+    border-color: #b34724; 
 }
 
 .filter select:focus {
     outline: none;
-    border-color: #b34724; /* מסגרת כתומה בעת לחיצה */
+    border-color: #b34724; 
 }
 
 
-/* פוסט ראשון */
+
 .post-list .post-item:first-child {
-    margin-top: 10px !important; /* צמצם את המרווח העליון של הפוסט הראשון ב-10 פיקסלים, עם !important כדי לשמור על זה */
+    margin-top: 10px !important; 
   }
 
   .post-list-container-myposts,
@@ -145,8 +141,8 @@
       width: 100%;
       max-width: 800px;
       padding: 5px;
-      overflow-y: auto; /* מאפשר גלילה */
-      height: calc(100vh - 140px); /* גובה דינמי כדי שתהיה גלילה אם התוכן עולה על הגובה */
+      overflow-y: auto; 
+      height: calc(100vh - 140px); 
       scrollbar-color: #444 #1a1a1b;
       scrollbar-width: thin;
       margin-left: -180px;
