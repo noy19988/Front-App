@@ -5,7 +5,7 @@ import { getUserDetails } from "../services/api-client";
 import "../styles/postitem.css";
 import { RiRobot2Fill } from "react-icons/ri";
 import { getPostNutrition } from "../services/post-client"; 
-import { FaHeart, FaComment, FaTrash, FaEllipsisV, FaEdit, FaBookmark } from "react-icons/fa";
+import { FaHeart, FaComment, FaTrash, FaEllipsisV, FaEdit, FaBookmark, FaUserCircle } from "react-icons/fa";
 import PostUpdatePage from "../pages/PostUpdatePage";
 import { Link } from "react-router-dom"; 
 
@@ -25,6 +25,7 @@ const formatCreatedAt = (dateString: string): string => {
   const days = Math.round(hours / 24);
   const months = Math.round(days / 30);
   const years = Math.round(months / 12);
+  
 
   if (seconds < 60) {
       return `${seconds}s`;
@@ -54,7 +55,8 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
     const [saved, setSaved] = useState(false);
     const [nutrition, setNutrition] = useState<{ calories: number; protein: number; sugar: number } | null>(null);
     const [loadingNutrition, setLoadingNutrition] = useState(false);
-    
+    const [imgError, setImgError] = useState(false);
+
 
     const userId = localStorage.getItem("userId");
     const isOwner = userId && post.authorId?._id === userId;
@@ -178,11 +180,19 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
       <div className="post-item">
           <div className="post-header">
               <div className="post-author">
-                <Link to={post.authorId ? `/profile/${post.authorId._id}` : "#"}>
-                      <img src={post.authorId?.imgUrl || "https://example.com/default-profile.png"} 
-                           alt={post.authorId.username} 
-                           className="author-img" />
-                  </Link>
+              <Link to={post.authorId ? `/profile/${post.authorId._id}` : "#"}>
+  {post.authorId.imgUrl && !imgError ? (
+    <img
+      src={post.authorId.imgUrl}
+      alt={post.authorId.username}
+      className="author-img"
+      onError={() => setImgError(true)}
+    />
+  ) : (
+    <FaUserCircle className="author-img default-icon" />
+  )}
+</Link>
+
                   <div className="author-details">
                       <span className="author-name">{post.authorId.username}</span>
                       <span className="post-created-at">{formatCreatedAt(post.createdAt)}</span>
