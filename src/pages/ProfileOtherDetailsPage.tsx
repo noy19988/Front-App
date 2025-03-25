@@ -11,7 +11,7 @@ const ProfileOtherDetailsPage: React.FC = () => {
     const { userId } = useParams<{ userId: string }>();
     const navigate = useNavigate();
     const [viewedUser, setViewedUser] = useState<{ _id: string; username: string; email: string; imgUrl?: string } | null>(null);
-    const [loggedInUser, setLoggedInUser] = useState<{ username: string; imgUrl?: string } | null>(null); // משתמש מחובר
+    const [loggedInUser, setLoggedInUser] = useState<{ username: string; imgUrl?: string } | null>(null); 
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -55,7 +55,7 @@ const ProfileOtherDetailsPage: React.FC = () => {
 
     return (
         <div className="home-container">
-            <Navbar user={loggedInUser} onSearch={() => {}} /> {/* שימוש ב-loggedInUser */}
+            <Navbar user={loggedInUser} onSearch={() => {}} /> {}
             <div className="content">
                 <Sidebar />
                 <div className="main-content">

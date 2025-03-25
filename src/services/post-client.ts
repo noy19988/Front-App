@@ -27,7 +27,7 @@ export interface Post {
 
 export const getAllPosts = async (): Promise<Post[]> => {
     try {
-      const response = await apiClient.get("/posts"); // 📌 שינוי הנתיב
+      const response = await apiClient.get("/posts"); 
       return response.data;
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -99,7 +99,7 @@ export const savePost = async (postId: string) => {
       throw new Error("User not logged in"); 
     }
 
-    const response = await apiClient.put(`/posts/${postId}/save`, { userId }); // שליחת בקשה ל-backend
+    const response = await apiClient.put(`/posts/${postId}/save`, { userId }); 
     return response.data;
   } catch (error) {
     console.error("Error saving/unsaving post:", error);
@@ -125,8 +125,8 @@ export const getPostNutrition = async (postId: string): Promise<{ calories: numb
       const response = await apiClient.get(`/posts/${postId}/nutrition`);
       return response.data;
   } catch (error) {
-      console.error("❌ Error fetching nutritional values:", error);
-      return null; // אם יש שגיאה, נחזיר null כדי למנוע קריסת הקוד
+      console.error("Error fetching nutritional values:", error);
+      return null; 
   }
 };
 

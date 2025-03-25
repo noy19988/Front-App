@@ -26,7 +26,7 @@ interface PostCreatePageProps {
 const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPostCreated }) => {
   const [formData, setFormData] = useState({
     recipeTitle: "",
-    category: [] as string[], // ✅ כבר קיים
+    category: [] as string[], 
     imageUrl: "",
     difficulty: "easy" as "easy" | "medium" | "hard",
     prepTime: "" as string | number,
@@ -42,9 +42,9 @@ const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPost
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     if (name === "ingredients" || name === "instructions") {
-        setFormData({ ...formData, [name]: value.split("\n") }); // פיצול לפי מעברי שורה
+        setFormData({ ...formData, [name]: value.split("\n") }); 
     } else if (name === "category") {
-        setFormData({ ...formData, [name]: value.split(",").map((item) => item.trim()) }); // פיצול לפי פסיקים
+        setFormData({ ...formData, [name]: value.split(",").map((item) => item.trim()) }); 
     } else {
         setFormData({ ...formData, [name]: value });
     }
@@ -90,7 +90,6 @@ const PostCreatePage: React.FC<PostCreatePageProps> = ({ isOpen, onClose, onPost
 
   useEffect(() => {
     if (isOpen) {
-      // אפס הכל
       setFormData({
         recipeTitle: "",
         category: [],

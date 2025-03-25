@@ -8,11 +8,11 @@
 }
 
 .search-container {
-  position: sticky; /* מיקום אבסולוטי */
-  top: px; /* מרחק מהקצה העליון */
+  position: sticky; 
+  top: px; 
   display: flex;
-  left: 50%; /* מיקום אופקי באמצע */
-  transform: translateX(-50%); /* הזזה כדי למרכז בדיוק */
+  left: 50%; 
+  transform: translateX(-50%); 
   display: flex;
   align-items: center;
   gap: 10px;
@@ -30,7 +30,6 @@
   transition: border-color 0.3s;
 }
 
-/* 🎯 שינוי הצבע בגבול בפוקוס */
 .search-input:focus {
   border-color: #ff4500 !important;
   outline: none;
@@ -68,7 +67,7 @@
   border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
-  font-size: 14px; /* ✅ הקטנת כל הכתב בכרטיס */
+  font-size: 14px; 
 }
 
 .recipe-image {
@@ -87,8 +86,8 @@
 
 
 .recipe-list-container {
-  max-height: 80vh; /* גובה מקסימלי לפני גלילה */
-  overflow-y: auto; /* מאפשר גלילה אנכית */
+  max-height: 80vh; 
+  overflow-y: auto; 
   width: 100%;
   max-width: 1200px;
   padding-right: 10px;
@@ -97,10 +96,10 @@
 }
 
 .loading {
-  position: absolute; /* מיקום אבסולוטי */
-  top: 50%; /* מיקום אנכי באמצע */
-  left: 50%; /* מיקום אופקי באמצע */
-  transform: translate(-50%, -50%); /* הזזה כדי למרכז בדיוק */
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
   font-size: 18px;
   color: #ccc;
 }

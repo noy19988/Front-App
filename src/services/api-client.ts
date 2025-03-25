@@ -103,7 +103,7 @@ export const deleteUser = async (userId: string) => {
     try {
         const response = await apiClient.put(`/users/${userId}`, formData, {
             headers: {
-                "Content-Type": "multipart/form-data", // 🔹 חשוב מאוד! אומר לשרת שהבקשה מכילה קובץ
+                "Content-Type": "multipart/form-data", 
             },
         });
         return response.data;

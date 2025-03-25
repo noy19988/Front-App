@@ -35,7 +35,7 @@
     padding: 6px 15px;
     width: 350px;
     max-width: 50%;
-    border: 2px solid #b34724; /* מסגרת בצבעים כמו בלוגין */
+    border: 2px solid #b34724; 
     box-shadow: 0 2px 5px rgba(179, 71, 36, 0.5);}
 
 .search-bar input {
@@ -49,7 +49,7 @@
 }
 
 .search-icon {
-    color: #d7dadc; /* מסגרת בצבעים כמו בלוגין */
+    color: #d7dadc; 
     font-size: 16px;
     margin-left: 8px;
     cursor: pointer;
@@ -76,7 +76,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px; /* מגדיל את הגודל */
+    width: 42px; 
     height: 42px;
     border-radius: 50%;
     background: #eaebed;

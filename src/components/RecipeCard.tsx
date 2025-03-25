@@ -10,18 +10,16 @@ interface RecipeCardProps {
     servings: number;
     summary: string;
     instructions: string;
-    extendedIngredients?: { name: string; amount: number; unit: string }[]; // 🛠 הוספת `?`
+    extendedIngredients?: { name: string; amount: number; unit: string }[]; 
     nutrition?: { nutrients: { name: string; amount: number; unit: string }[] } | null;
   };
 }
 
 const removeLinks = (html: string) => {
-  // הסרת כל תגי <a> מתוך ה-HTML
   return html.replace(/<a[^>]*>/g, '').replace(/<\/a>/g, '');
 };
 
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
-  // פונקציה שמסירה תגי קישור (לינקים)
 
   return (
     <div className="recipe-card">
@@ -30,11 +28,11 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       <p>Time: {recipe.readyInMinutes} min</p>
       <p>Servings: {recipe.servings}</p>
 
-      {/* סיכום המתכון עם HTML, לאחר הסרת קישורים */}
+      {}
       <p className="recipe-summary" dangerouslySetInnerHTML={{ __html: removeLinks(recipe.summary || "No summary available.") }}></p>
 
       <p>Ingredients:</p>
-      {/* הצגת רכיבים */}
+      {}
       {recipe.extendedIngredients && recipe.extendedIngredients.length > 0 ? (
         <ul>
           {recipe.extendedIngredients.map((ingredient, index) => (
@@ -48,10 +46,10 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       )}
 
       <p>Instructions:</p>
-      {/* הצגת הוראות הכנה עם HTML, לאחר הסרת קישורים */}
+      {}
       <div className="recipe-instructions" dangerouslySetInnerHTML={{ __html: removeLinks(recipe.instructions || "No instructions available.") }}></div>
 
-      {/* הצגת תזונה אם קיימת */}
+      {}
       {recipe.nutrition && recipe.nutrition.nutrients.length > 0 ? (
         <>
           <p>Nutrition Facts:</p>

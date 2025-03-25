@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Post, deletePost, updatePost, savePost } from "../services/post-client";
-import { addComment, getCommentsByPost, Comment } from "../services/comment-client";
+import { addComment, getCommentsByPost, Comment, deleteComment } from "../services/comment-client";
 import { getUserDetails } from "../services/api-client";
 import "../styles/postitem.css";
 import { RiRobot2Fill } from "react-icons/ri";
 import { getPostNutrition } from "../services/post-client"; 
 import { FaHeart, FaComment, FaTrash, FaEllipsisV, FaEdit, FaBookmark } from "react-icons/fa";
 import PostUpdatePage from "../pages/PostUpdatePage";
-import { Link } from "react-router-dom"; // ייבוא Link
+import { Link } from "react-router-dom"; 
 
 interface PostItemProps {
     post: Post;
@@ -280,23 +280,44 @@ const PostItem: React.FC<PostItemProps> = ({ post, onDelete }) => {
                   <button className="submit-comment" onClick={handleAddComment}>Post</button>
   
                   <div className="previous-comments">
-                      {comments.length > 0 ? (
-                          comments.map(comment => (
-                              <div key={comment._id} className="comment-item">
-                                  <img
-                                      src={comment.author.imgUrl || "https://example.com/default-profile.png"}
-                                      alt={comment.author.username}
-                                      className="comment-author-img"
-                                  />
-                                  <div className="comment-content">
-                                      <strong>{comment.author.username}</strong>
-                                      <p>{comment.content}</p>
-                                  </div>
-                              </div>
-                          ))
-                      ) : (
-                          <p>No comments yet. Be the first to comment!</p>
-                      )}
+                  {comments.length > 0 ? (
+  comments.map(comment => (
+    <div key={comment._id} className="comment-item">
+  {comment.author._id === userId && (
+    <button
+      onClick={async () => {
+        try {
+          await deleteComment(comment._id);
+          setComments(prev => prev.filter(c => c._id !== comment._id));
+          setCommentsCount(prev => prev - 1);
+        } catch (err) {
+          console.error("Error deleting comment:", err);
+        }
+      }}
+      className="delete-comment-btn"
+      title="Delete comment"
+    >
+      ✖
+    </button>
+  )}
+
+  <img
+    src={comment.author.imgUrl || "https://example.com/default-profile.png"}
+    alt={comment.author.username}
+    className="comment-author-img"
+  />
+
+  <div className="comment-content">
+    <strong>{comment.author.username}</strong>
+    <p>{comment.content}</p>
+  </div>
+</div>
+
+  ))
+) : (
+  <p>No comments yet. Be the first to comment!</p>
+)}
+
                   </div>
               </div>
           )}

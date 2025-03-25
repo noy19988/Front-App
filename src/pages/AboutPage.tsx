@@ -5,7 +5,6 @@ import "../styles/about.css";
 import { useNavigate } from 'react-router-dom';
 import { getUserDetails } from "../services/api-client";
 
-// טיפוס עבור משתמש
 interface User {
     username: string;
     imgUrl?: string;
@@ -40,7 +39,6 @@ const AboutPage: React.FC = () => {
     }, [navigate]);
 
     useEffect(() => {
-        // יצירת אפקט שינוי זווית בהתאם למיקום העכבר
         const welcomeSection = welcomeSectionRef.current;
         if (!welcomeSection) return;
 
@@ -49,9 +47,8 @@ const AboutPage: React.FC = () => {
             const x = (e.clientX - rect.left) / rect.width;
             const y = (e.clientY - rect.top) / rect.height;
             
-            // חישוב זווית הסיבוב בהתאם למיקום העכבר
-            const rotateX = (y - 0.5) * 5; // -2.5 עד 2.5 מעלות
-            const rotateY = (0.5 - x) * 5; // -2.5 עד 2.5 מעלות
+            const rotateX = (y - 0.5) * 5; 
+            const rotateY = (0.5 - x) * 5; 
             
             welcomeSection.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         };
@@ -63,10 +60,8 @@ const AboutPage: React.FC = () => {
         welcomeSection.addEventListener('mousemove', handleMouseMove);
         welcomeSection.addEventListener('mouseleave', handleMouseLeave);
 
-        // יצירת בועות אנימציה
         createBubbles();
         
-        // יצירת צורות רקע אקראיות
         createBackgroundShapes();
 
         return () => {
@@ -75,26 +70,21 @@ const AboutPage: React.FC = () => {
         };
     }, []);
 
-    // פונקציה ליצירת בועות אנימציה
     const createBubbles = () => {
         const welcomeSection = welcomeSectionRef.current;
         if (!welcomeSection) return;
         
-        // יצירת מספר בועות אקראיות
         for (let i = 0; i < 15; i++) {
             const bubble = document.createElement('div');
             bubble.classList.add('bubble');
             
-            // גודל אקראי בין 10 ל-60 פיקסלים
             const size = Math.random() * 50 + 10;
             bubble.style.width = `${size}px`;
             bubble.style.height = `${size}px`;
             
-            // מיקום אקראי
             bubble.style.left = `${Math.random() * 100}%`;
             bubble.style.top = `${Math.random() * 100}%`;
             
-            // משך ועיכוב אנימציה אקראיים
             const duration = Math.random() * 10 + 10;
             const delay = Math.random() * 5;
             bubble.style.animation = `float ${duration}s ${delay}s infinite ease-in-out`;
@@ -104,12 +94,10 @@ const AboutPage: React.FC = () => {
         }
     };
 
-  // פונקציה ליצירת צורות רקע
     const createBackgroundShapes = () => {
         const bgShapes = bgShapesRef.current;
         if (!bgShapes) return;
 
-        // יצירת עיגולים גדולים ברקע עם אפקט בלור
         for (let i = 0; i < 3; i++) {
             const circle = document.createElement('div');
             circle.classList.add('bg-circle');
@@ -121,7 +109,6 @@ const AboutPage: React.FC = () => {
             circle.style.left = `${Math.random() * 100}%`;
             circle.style.top = `${Math.random() * 100}%`;
             
-            // אנימציית פעימה איטית
             const duration = Math.random() * 10 + 15;
             circle.style.animation = `pulse ${duration}s infinite alternate ease-in-out`;
             
@@ -129,9 +116,7 @@ const AboutPage: React.FC = () => {
         }
     };
 
-    // פונקציה לעטיפת מילים מודגשות
     const wrapHighlightedWords = (text: string) => {
-        // מחליף <strong> תגים עם ה-highlight-word קלאס
         return text.replace(/<strong>(.*?)<\/strong>/g, '<span class="highlight-word">$1</span>');
     };
 
@@ -146,12 +131,12 @@ const AboutPage: React.FC = () => {
             <div className="content">
                 <Sidebar />
                 <div className="about-page">
-                    {/* אלמנטים דקורטיביים ברקע */}
+                    {}
                     <div className="bg-shapes" ref={bgShapesRef}></div>
                     
                     <div className="about-container">
                         <div className="welcome-section" ref={welcomeSectionRef}>
-                            {/* צורות נוזליות מאחורי התוכן */}
+                            {}
                             <div className="liquid-shape"></div>
                             <div className="liquid-shape"></div>
                             

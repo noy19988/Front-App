@@ -6,8 +6,8 @@ import "../styles/navbar.css";
 const Navbar = ({ user, onSearch }: { user: { username: string; imgUrl?: string } | null, onSearch: (searchQuery: string) => void }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [imgError, setImgError] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(""); // ✨ הוספנו סטייט לשאילתת החיפוש
-  const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(null); // ✨ סטייט לעיכוב
+  const [searchQuery, setSearchQuery] = useState(""); 
+  const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(null); 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
@@ -64,7 +64,7 @@ const Navbar = ({ user, onSearch }: { user: { username: string; imgUrl?: string 
           type="text"
           placeholder="Search..."
           value={searchQuery}
-          onChange={handleInputChange} // במקום onChange הרגיל, נשתמש במתודה הזו
+          onChange={handleInputChange} 
         />
         <FaSearch className="search-icon" />
       </div>
@@ -92,7 +92,7 @@ const Navbar = ({ user, onSearch }: { user: { username: string; imgUrl?: string 
               }}
               onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#b34724")}
               onMouseLeave={(e) => (e.currentTarget.style.borderColor = "transparent")}
-              onError={() => setImgError(true)} // אם טעינה נכשלה – מציג אייקון
+              onError={() => setImgError(true)} 
             />
           ) : (
             <FaUserCircle className="default-profile-icon" />

@@ -51,7 +51,7 @@ function MyPostsPage() {
 
     return (
         <div className="home-container">
-      <     Navbar user={user} onSearch={() => {}} /> {/* הוספת onSearch */}
+      <     Navbar user={user} onSearch={() => {}} /> {}
             <div className="content">
                 <Sidebar />
                 <div className="main-content">

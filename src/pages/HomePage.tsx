@@ -101,7 +101,7 @@ function HomePage() {
             onPostCreated={fetchPosts}
           />
 
-          <div className="filters-container"> {/* עוטף את המסננים ואת כפתור יצירת פוסט */}
+          <div className="filters-container"> {}
             <div className="filters">
               <div className="filter">
                 <label htmlFor="difficulty">Difficulty</label>

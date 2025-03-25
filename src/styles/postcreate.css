@@ -1,4 +1,3 @@
-/* 🎯 רקע שקוף כאשר המודל פתוח */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -13,7 +12,6 @@
   padding: 20px;
 }
 
-/* 🎯 תיבת יצירת פוסט */
 .modal-content {
   background: #1a1a1b;
   padding: 25px;
@@ -23,7 +21,7 @@
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 14px; /* ✅ ריווח אחיד */
+  gap: 14px; 
   animation: fadeIn 0.3s ease-in-out;
   max-height: 85vh;
   overflow-y: auto;
@@ -31,13 +29,10 @@
   scrollbar-color: #7d7b7a #272729;
 }
 
-/* 🎯 התאמת פס גלילה ל-Chrome */
 .modal-content::-webkit-scrollbar {
   width: 8px;
 }
 
-
-/* 🎯 כותרת */
 .modal-content h2 {
   font-size: 20px;
   font-weight: bold;
@@ -46,12 +41,11 @@
   margin-bottom: 14px;
 }
 
-/* 🎯 שדות קלט */
 .modal-content input,
 .modal-content select,
 .modal-content textarea {
   width: 100%;
-  height: 48px; /* ✅ גובה אחיד לכל השדות */
+  height: 48px; 
   padding: 12px;
   font-size: 14px;
   border: 1px solid #3a3a3d;
@@ -62,19 +56,16 @@
   margin-bottom: 14px;
 }
 
-/* 🎯 התאמת שדה הטקסט */
 .modal-content textarea {
-  height: 48px; /* ✅ גובה סטנדרטי ל-textarea */
+  height: 48px; 
   resize: none;
 }
 
-/* 🎯 ריווח נוסף אחרי Easy */
 .modal-content select {
   margin-bottom: 18px !important;
   
 }
 
-/* 🎯 שינוי הגבול לכתום בפוקוס */
 .modal-content input:focus,
 .modal-content select:focus,
 .modal-content textarea:focus {
@@ -83,7 +74,6 @@
   box-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
 }
 
-/* 🎯 אזור העלאת תמונה */
 .image-upload-container {
   display: flex;
   align-items: center;
@@ -104,7 +94,6 @@
   margin-bottom: 14px;
 }
 
-/* 🎯 תצוגת תמונה */
 .image-preview {
   width: 100%;
   max-width: 280px;
@@ -118,7 +107,6 @@
   padding: 5px;
 }
 
-/* 🎯 כפתורים */
 .modal-buttons {
   display: flex;
   justify-content: space-between;
@@ -155,7 +143,6 @@
   background: #2c2c2f;
 }
 
-/* 🎯 התאמה למסכים קטנים */
 @media (max-width: 768px) {
   .modal-content {
     max-width: 90%;
@@ -164,7 +151,6 @@
 }
 
 
-/* 🎯 בסיס הקונטיינר */
 .react-select-container {
   margin-bottom: 14px;
   font-size: 14px;
@@ -173,7 +159,6 @@
   max-width: 500px;
 }
 
-/* 🎯 שדה הבחירה הראשי */
 .select__control {
   background-color: #272729 !important;
   border-color: #3a3a3d !important;
@@ -189,18 +174,16 @@
   transition: border-color 0.3s;
 }
 
-/* 🎯 בעת פוקוס */
 .select__control--is-focused {
   border-color: #ff4500 !important;
   box-shadow: 0 0 5px rgba(255, 69, 0, 0.5) !important;
 }
 
-/* 🎯 טקסט placeholder ו-value רגיל */
 .select__placeholder,
 .select__single-value {
   display: flex !important;
   align-items: center !important;
-  justify-content: center; /* למרכז גם אופקית אם רוצים */
+  justify-content: center; 
   height: 100% !important;
   font-size: 13px;
   color: #aaa !important;
@@ -211,7 +194,6 @@
   text-align: center;
 }
 
-/* 🎯 אזור התוכן הפנימי של השדה */
 .select__value-container {
   display: flex !important;
   align-items: center !important;
@@ -220,7 +202,6 @@
   overflow-x: auto;
 }
 
-/* 🎯 אזור החץ (indicators) */
 .select__indicators {
   display: flex !important;
   align-items: center !important;
@@ -230,7 +211,6 @@
   color: #e4e6eb !important;
 }
 
-/* 🎯 תפריט הבחירה */
 .select__menu {
   background-color: #1f1f1f !important;
   border-radius: 6px;
@@ -239,7 +219,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* 🎯 פריט בתפריט */
 .select__option {
   background-color: #1f1f1f !important;
   color: #e4e6eb !important;
@@ -250,18 +229,15 @@
   cursor: pointer;
 }
 
-/* 🎯 hover */
 .select__option--is-focused {
   background-color: #3a3a3d !important;
 }
 
-/* 🎯 פריט נבחר */
 .select__option--is-selected {
   background-color: #ff450030 !important;
   font-weight: bold;
 }
 
-/* 🎯 checkbox ליד פריט */
 .select__option::before {
   content: "☐";
   display: inline-block;
@@ -274,7 +250,6 @@
   content: "☑";
 }
 
-/* 🎯 תגיות במצב multiple */
 .select__multi-value {
   background-color: #3a3a3d;
   border-radius: 6px;
@@ -286,13 +261,11 @@
   color: #e4e6eb;
 }
 
-/* 🎯 טקסט בתגית */
 .select__multi-value__label {
   color: #e4e6eb;
   padding-right: 6px;
 }
 
-/* 🎯 כפתור הסרה בתגית */
 .select__multi-value__remove {
   color: #ff4500;
   opacity: 1 !important;

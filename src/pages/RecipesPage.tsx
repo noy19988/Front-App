@@ -44,14 +44,12 @@ const handleSearch = async () => {
   if (!query.trim()) return;
   setLoading(true);
   try {
-    // שליפת המתכונים
     const response = await fetch(
       `https://node115.cs.colman.ac.il/api/recipes/search?query=${query}`
     );
     const data = await response.json();
     console.log("Fetched recipes:", data.recipes);
 
-    // שליפת פרטי המתכון המלאים לכל מתכון
     interface Recipe {
       id: number;
       title: string;
@@ -74,11 +72,11 @@ const handleSearch = async () => {
           `https://node115.cs.colman.ac.il/api/recipes/${recipe.id}`
         );
         const recipeDetails: RecipeDetails = await recipeDetailsResponse.json();
-        return recipeDetails.recipeDetails; // הנתונים המלאים של המתכון
+        return recipeDetails.recipeDetails; 
       })
     );
     
-    setRecipes(detailedRecipes); // עדכון המתכונים המפורטים
+    setRecipes(detailedRecipes); 
   } catch (error) {
     console.error("Error fetching recipes:", error);
   }
@@ -88,7 +86,7 @@ const handleSearch = async () => {
   
   return (
     <div className="home-container">
-      <Navbar user={user} onSearch={() => {}} /> {/* הוספת onSearch */}
+      <Navbar user={user} onSearch={() => {}} /> {}
       <div className="content">
         <Sidebar />
         <main className="recipes-content">
@@ -105,7 +103,7 @@ const handleSearch = async () => {
             </button>
           </div>
 
-          {/* ✅ הסתר את RecipeList אם אין מתכונים */}
+          {}
           <div className="recipe-list-container">
             {loading ? (
               <p className="loading">Loading...</p>

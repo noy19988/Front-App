@@ -4,14 +4,14 @@ import { getUserDetails, updateUser, deleteUser } from "../services/api-client";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { FaTrash, FaUser } from "react-icons/fa";
-import "../styles/profile.css"; // קובץ העיצוב
+import "../styles/profile.css"; 
 
 const ProfilePage = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<{ _id: string; username: string; email: string; imgUrl?: string } | null>(null);
   const [newUsername, setNewUsername] = useState("");
   const [newImage, setNewImage] = useState<File | null>(null);
-  const [profileImage, setProfileImage] = useState<string | null>(null); // סטייט לתמונה
+  const [profileImage, setProfileImage] = useState<string | null>(null); 
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -24,7 +24,7 @@ const ProfilePage = () => {
       .then((data) => {
         setUser(data);
         setNewUsername(data.username);
-        setProfileImage(data.imgUrl && data.imgUrl.trim() !== "" ? data.imgUrl : null); // עדכון תמונה רק אם יש נתון תקין
+        setProfileImage(data.imgUrl && data.imgUrl.trim() !== "" ? data.imgUrl : null); 
       })
       .catch(() => {
         localStorage.removeItem("token");
@@ -35,7 +35,7 @@ const ProfilePage = () => {
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
-    const filteredValue = inputValue.replace(/\s/g, ""); // מונע רווחים
+    const filteredValue = inputValue.replace(/\s/g, ""); 
     setNewUsername(filteredValue);
   };
 
@@ -58,11 +58,11 @@ const ProfilePage = () => {
       const updatedUser = await updateUser(user._id, formData);
       if (updatedUser) {
         setUser(updatedUser);
-        setProfileImage(updatedUser.imgUrl); // עדכון תמונה לאחר השמירה
-        alert("✅ Profile updated successfully!");
+        setProfileImage(updatedUser.imgUrl); 
+        alert("Profile updated successfully!");
       }
     } catch (error) {
-      console.error("❌ Error updating profile:", error);
+      console.error("Error updating profile:", error);
     }
   };
 
@@ -83,14 +83,14 @@ const ProfilePage = () => {
 
   return (
     <div className="home-container">
-      {/* הניווט העליון */}
-      <Navbar user={user} onSearch={() => {}} /> {/* הוספת onSearch */}
+      {}
+      <Navbar user={user} onSearch={() => {}} /> {}
 
       <div className="content">
-        {/* הסרגל הצדדי */}
+        {}
         <Sidebar />
 
-        {/* התוכן המרכזי - עמוד פרופיל */}
+        {}
         <div className="main-content">
           <div className="profile-container">
             <div className="profile-card">
@@ -105,7 +105,7 @@ const ProfilePage = () => {
                 )}
               </div>
 
-              {/* כפתור העלאת תמונה */}
+              {}
               <label className="file-upload">
                 <input
                   type="file"
@@ -113,13 +113,13 @@ const ProfilePage = () => {
                   onChange={(e) => {
                     if (e.target.files && e.target.files[0]) {
                       setNewImage(e.target.files[0]);
-                      setProfileImage(URL.createObjectURL(e.target.files[0])); // הצגת תמונה זמנית לפני השמירה
+                      setProfileImage(URL.createObjectURL(e.target.files[0])); 
                     }
                   }}
                 />
               </label>
 
-              {/* טקסט של מגבלת גודל */}
+              {}
               <p className="image-info">JPG or PNG no larger than 5 MB</p>
             </div>
 

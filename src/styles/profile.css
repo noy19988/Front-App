@@ -1,6 +1,4 @@
-/* profile css */
 
-/* עיצוב כללי של דף הפרופיל */
 .profile-container {
     padding-top: 20px;
     padding-left: -40px;
@@ -13,10 +11,10 @@
 
 .profile-card {
     background: linear-gradient(135deg, 
-        #2c2c2c,   /* אפור כהה */
-        #595755 40%, /* אפור בינוני */
-        #eb5808 130%,  /* כתום */
-        #1a1a1a);   /* שחור */    
+        #2c2c2c,   
+        #595755 40%,
+        #eb5808 130%,  
+        #1a1a1a);      
     padding: 16px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -52,7 +50,6 @@
     border-radius: 50%;
 }
 
-/* תמונה דיפולטיבית */
 .default-profile {
     display: flex;
     align-items: center;
@@ -68,7 +65,6 @@
     color: #666;
 }
 
-/* כפתור העלאת תמונה */
 .file-upload {
     display: flex;
     justify-content: center;
@@ -96,10 +92,10 @@
 
 .profile-details {
     background: linear-gradient(135deg, 
-    #2c2c2c,   /* אפור כהה */
-    #595755 40%, /* אפור בינוני */
-    #eb5808 130%,  /* כתום */
-    #1a1a1a);   /* שחור */      
+    #2c2c2c,   
+    #595755 40%, 
+    #eb5808 130%,  
+    #1a1a1a);        
     padding: 36px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -143,7 +139,6 @@
     cursor: not-allowed;
 }
 
-/* סידור הכפתורים */
 .button-container {
     display: flex;
     justify-content: space-between;
